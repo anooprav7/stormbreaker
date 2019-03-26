@@ -1,3 +1,5 @@
+// https://github.com/everydayhero/constructicon/blob/master/styleguide.config.js
+
 const path = require('path');
 const { styles, theme } = require('./styleguide.styles');
 const { version } = require('./package.json');
