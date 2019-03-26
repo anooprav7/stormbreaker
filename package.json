@@ -1,0 +1,21 @@
+{
+	"name": "stormbreaker-main",
+	"version": "0.1.0",
+	"description": "Stormbreaker Component Library Project",
+	"main": "index.js",
+	"private": true,
+	"workspaces": [
+		"core/components",
+		"core/tokens/anooprav7",
+		"docs"
+	],
+	"scripts": {},
+	"keywords": [
+		"stormbreaker"
+	],
+	"author": "anooprav7@gmail.com",
+	"license": "MIT",
+	"dependencies": {
+		"nps": "5.9.3"
+	}
+}

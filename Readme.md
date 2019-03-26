@@ -1,5 +1,3 @@
-## React Component Library
+## Stormbreaker Component Library
 
-`yarn add stormbreaker`
-
-anooprav7@gmail.com
+nps usage - ./node_modules/bin

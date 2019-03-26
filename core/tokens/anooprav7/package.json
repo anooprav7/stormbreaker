@@ -1,0 +1,9 @@
+{
+	"name": "@anooprav7/tokens",
+	"version": "0.1.0",
+	"description": "custom check",
+	"main": "index.js",
+	"scripts": {},
+	"author": "anooprav7@gmail.com",
+	"license": "MIT"
+}
