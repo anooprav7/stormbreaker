@@ -1,24 +1,33 @@
 const {
-    series: { nps: series },
-    concurrent: { nps: parallel }
-  } = require('nps-utils')
+	series: { nps: series },
+	concurrent: { nps: parallel }
+} = require('nps-utils');
 
-  module.exports = {
-    scripts: {
-        test: {
-            default: {
-              script: 'yarn start',
-              description:
-                'Check if applications build + Run visual tests + Run unit and integration tests'
-            },
-          },
-        publish:{
-            components: {},
-            kits:{}
-        },
-        docs:{
-            dev: {},
-            build: {}
-        }
-    }
-}  
+module.exports = {
+	scripts: {
+		default: {
+			script: 'cd docs && yarn sss',
+			description: 'Run docs in dev'
+		},
+		test: {
+			default: {
+				script: 'yarn start',
+				description: 'Check if applications build + Run visual tests + Run unit and integration tests'
+			}
+		},
+		publish: {
+			stormbreaker: {
+				script: 'npm publish',
+				description: 'Publish stormbreaker to npm'
+			},
+			tokens: {}
+		},
+		docs: {
+			dev: {
+				script: 'cd docs && yarn sss',
+				description: 'Run docs in dev'
+			},
+			build: {}
+		}
+	}
+};
