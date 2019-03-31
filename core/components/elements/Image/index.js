@@ -6,12 +6,12 @@ import { color, space, width } from 'styled-system';
 export default function Image(props) {
 	return <div>I am Image</div>;
 }
-
+/*
 const Image = styled.img`
 	${space}
 	${width}
 `;
-
+*/
 Image.propTypes = {
 	/** URL of the image */
 	src: PropTypes.string,
