@@ -1,17 +1,11 @@
-const {
-	series: { nps: series },
-	concurrent: { nps: parallel }
-} = require('nps-utils');
+// Use && (double ampersand) for sequential execution.
+// Use & (single ampersand) for parallel execution.
 
 module.exports = {
 	scripts: {
-		docs: {
+		server: {
 			default: {
 				script: 'cd docs && yarn docs:server',
-				description: 'Run styleguidist server docs'
-			},
-			build: {
-				script: 'cd docs && yarn docs:build',
 				description: 'Run styleguidist server docs'
 			}
 		},
@@ -19,19 +13,38 @@ module.exports = {
 			script: 'cd docs && yarn start',
 			description: 'Run playground from docs'
 		},
-		test: {
-			default: {
-				script: 'yarn start',
-				description:
-					'Check if applications build + Run visual tests + Run unit and integration tests'
-			}
-		},
 		publish: {
 			stormbreaker: {
 				script: 'cd core/components && npm publish',
 				description: 'Publish stormbreaker to npm'
 			},
 			tokens: {}
+		},
+		build: {
+			stormbreaker: {
+				script: 'node tools/publishHelper.js',
+				description: 'Publish stormbreaker to npm'
+			},
+			token: {
+				script: 'node tools/createModule.js',
+				description: 'Publish stormbreaker to npm'
+			},
+			docs: {
+				script: 'cd docs && yarn docs:build',
+				description: 'Run styleguidist server docs'
+			}
+		},
+		clean: {
+			stormbreaker: {
+				script: 'cd core/components && rm -rf build',
+				description: 'Delete build folder'
+			}
+		},
+		check: {
+			default: 'nps build.stormbreaker && nps build.token'
+		},
+		help: {
+			default: 'nps clean.stormbreaker && node tools/publishHelper.js'
 		}
 	}
 };
