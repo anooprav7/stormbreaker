@@ -3,6 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "2.1.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+=======
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
     "babel-core": "7.0.0-bridge.0",
@@ -56,6 +67,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
+>>>>>>> 307bbe681ebee8c23d924d342470c1f3c8a4ec21
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -65,6 +77,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
+<<<<<<< HEAD
+  ]
+=======
   ],
   "jest": {
     "collectCoverageFrom": [
@@ -116,4 +131,5 @@
       "react-app"
     ]
   }
+>>>>>>> 307bbe681ebee8c23d924d342470c1f3c8a4ec21
 }

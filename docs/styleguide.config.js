@@ -1,3 +1,5 @@
+// https://github.com/everydayhero/constructicon/blob/master/styleguide.config.js
+
 const path = require('path');
 const { styles, theme } = require('./styleguide.styles');
 const { version } = require('./package.json');
@@ -20,9 +22,7 @@ const compoundDirs = getDirectoriesAndAddIndex(`${masterPath}/compounds`);
 module.exports = {
 	title: `Stormbreaker ${version}`,
 	editorConfig: { theme: 'cobalt' },
-	template: {
-		favicon: 'https://anoop.space/static/media/logo.5d5d9eef.svg'
-	},
+	template: { filename: './styleguide.template.html', favicon: './src/assets/favicon.ico' },
 	serverPort: 7007,
 	usageMode: 'expand',
 	styles,
