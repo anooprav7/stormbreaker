@@ -5,33 +5,33 @@ const {
 
 module.exports = {
 	scripts: {
-		default: {
-			script: 'cd docs && yarn sss',
-			description: 'Run docs in dev'
+		docs: {
+			default: {
+				script: 'cd docs && yarn docs:server',
+				description: 'Run styleguidist server docs'
+			},
+			build: {
+				script: 'cd docs && yarn docs:build',
+				description: 'Run styleguidist server docs'
+			}
 		},
 		play: {
-			script: 'cd playground && yarn start',
-			description: 'Run playground in dev'
+			script: 'cd docs && yarn start',
+			description: 'Run playground from docs'
 		},
 		test: {
 			default: {
 				script: 'yarn start',
-				description: 'Check if applications build + Run visual tests + Run unit and integration tests'
+				description:
+					'Check if applications build + Run visual tests + Run unit and integration tests'
 			}
 		},
 		publish: {
 			stormbreaker: {
-				script: 'npm publish',
+				script: 'cd core/components && npm publish',
 				description: 'Publish stormbreaker to npm'
 			},
 			tokens: {}
-		},
-		docs: {
-			dev: {
-				script: 'cd docs && yarn sss',
-				description: 'Run docs in dev'
-			},
-			build: {}
 		}
 	}
 };
