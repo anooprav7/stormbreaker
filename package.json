@@ -7,7 +7,8 @@
 	"workspaces": [
 		"core/components",
 		"core/tokens/anooprav7",
-		"docs"
+		"docs",
+		"playground"
 	],
 	"scripts": {},
 	"keywords": [
