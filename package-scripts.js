@@ -15,24 +15,10 @@ module.exports = {
 		},
 		publish: {
 			stormbreaker: {
-				script: 'cd core/components && npm publish',
+				script: 'cd core/components/build && npm publish',
 				description: 'Publish stormbreaker to npm'
 			},
 			tokens: {}
-		},
-		build: {
-			stormbreaker: {
-				script: 'node tools/publishHelper.js',
-				description: 'Publish stormbreaker to npm'
-			},
-			token: {
-				script: 'node tools/createModulesForPublishing.js',
-				description: 'Publish stormbreaker to npm'
-			},
-			docs: {
-				script: 'cd docs && yarn docs:build',
-				description: 'Run styleguidist server docs'
-			}
 		},
 		clean: {
 			stormbreaker: {
@@ -40,11 +26,23 @@ module.exports = {
 				description: 'Delete build folder'
 			}
 		},
-		check: {
-			default: 'nps build.stormbreaker && nps build.token'
+		build: {
+			stormbreaker: {
+				script:
+					'nps clean.stormbreaker && node tools/prepareBuildForPublishing.js && cd core/components && yarn babel:build',
+				description: 'Build stormbreaker ready to publish'
+			},
+			token: {
+				script: 'node tools/createModulesForPublishing.js',
+				description: 'Publish stormbreaker to npm'
+			},
+			docs: {
+				script: 'cd docs && yarn docs:build',
+				description: 'Build styleguidist server docs to host somewhere'
+			}
 		},
-		help: {
-			default: 'nps clean.stormbreaker && nps build.stormbreaker'
+		check: {
+			default: 'nps build.stormbreaker && cd core/components && yarn babel:build'
 		}
 	}
 };

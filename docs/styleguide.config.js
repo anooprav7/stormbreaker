@@ -15,6 +15,9 @@ const getDirectoriesAndAddIndex = source =>
 		.map(dir => `${dir}/index.js`);
 
 const masterPath = path.dirname(require.resolve('stormbreaker'));
+// console.log('docs path - ', path.dirname(require.resolve('stormbreaker')));
+// const masterPath = `../core/components`;
+// const masterPath = `${process.cwd()}/stormbreakerBuild`;
 
 const elementDirs = getDirectoriesAndAddIndex(`${masterPath}/elements`);
 const compoundDirs = getDirectoriesAndAddIndex(`${masterPath}/compounds`);
@@ -65,5 +68,5 @@ module.exports = {
 			}
 		}
 	],
-	webpackConfig: require('./config/webpack.config.js')
+	webpackConfig: require('./config/webpack.config.js')('development')
 };

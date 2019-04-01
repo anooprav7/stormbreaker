@@ -1,9 +1,11 @@
 {
 	"name": "stormbreaker",
-	"version": "0.1.2",
+	"version": "0.1.5",
 	"description": "Stormbreaker Component Library",
 	"main": "index.js",
-	"scripts": {},
+	"scripts": {
+		"babel:build": "babel build -d build"
+	},
 	"author": "anooprav7@gmail.com",
 	"license": "MIT",
 	"dependencies": {
@@ -14,5 +16,20 @@
 	"peerDependencies": {
 		"react": "^16.8.3",
 		"react-dom": "^16.8.3"
+	},
+	"devDependencies": {
+		"@babel/cli": "7.2.3",
+		"@babel/core": "7.2.2",
+		"@babel/plugin-external-helpers": "7.2.0",
+		"@babel/plugin-proposal-class-properties": "7.3.0",
+		"@babel/plugin-proposal-export-default-from": "7.2.0",
+		"@babel/plugin-proposal-export-namespace-from": "7.2.0",
+		"@babel/plugin-proposal-object-rest-spread": "7.3.1",
+		"@babel/plugin-transform-runtime": "7.2.0",
+		"@babel/preset-env": "7.3.1",
+		"@babel/preset-flow": "7.0.0",
+		"@babel/preset-react": "7.0.0",
+		"babel-plugin-styled-components": "1.10.0",
+		"babel-plugin-syntax-trailing-function-commas": "6.22.0"
 	}
 }

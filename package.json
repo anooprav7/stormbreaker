@@ -1,6 +1,6 @@
 {
 	"name": "stormbreaker-main",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Stormbreaker Component Library Project",
 	"main": "index.js",
 	"private": true,
@@ -9,14 +9,19 @@
 		"core/tokens/anooprav7",
 		"docs"
 	],
-	"scripts": {},
+	"scripts": {
+		"build": "babel core/components -d core/es --ignore *.test.js,*.story.js,makeStories.js"
+	},
 	"keywords": [
 		"stormbreaker"
 	],
 	"author": "anooprav7@gmail.com",
 	"license": "MIT",
 	"dependencies": {
+		"latest-version": "5.0.0",
 		"mkdirp": "0.5.1",
-		"nps": "5.9.3"
+		"ncp": "2.0.0",
+		"nps": "5.9.3",
+		"read-pkg": "5.0.0"
 	}
 }

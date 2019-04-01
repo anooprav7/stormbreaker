@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '@anooprav7/tokens';
+import { theme } from '@anooprav7/token';
 // import theme from 'where/your/theme/lives'
 
 export default class ThemeWrapper extends Component {
