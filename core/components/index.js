@@ -1,4 +1,2 @@
-const Button = require('./elements/Button').default;
-const Image = require('./elements/Image').default;
-
+import { Button, Image } from './aggregator';
 export { Button, Image };

@@ -26,7 +26,7 @@ module.exports = {
 				description: 'Publish stormbreaker to npm'
 			},
 			token: {
-				script: 'node tools/createModule.js',
+				script: 'node tools/createModulesForPublishing.js',
 				description: 'Publish stormbreaker to npm'
 			},
 			docs: {
@@ -44,7 +44,7 @@ module.exports = {
 			default: 'nps build.stormbreaker && nps build.token'
 		},
 		help: {
-			default: 'nps clean.stormbreaker && node tools/publishHelper.js'
+			default: 'nps clean.stormbreaker && nps build.stormbreaker'
 		}
 	}
 };
