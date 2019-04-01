@@ -23,7 +23,7 @@ module.exports = {
 		clean: {
 			stormbreaker: {
 				script: 'cd core/components && rm -rf build',
-				description: 'Delete build folder'
+				description: 'Remove stormbreaker build folder'
 			}
 		},
 		build: {
@@ -34,7 +34,7 @@ module.exports = {
 			},
 			token: {
 				script: 'node tools/createModulesForPublishing.js',
-				description: 'Publish stormbreaker to npm'
+				description: 'Build @anooprav7/token to npm'
 			},
 			docs: {
 				script: 'cd docs && yarn docs:build',
