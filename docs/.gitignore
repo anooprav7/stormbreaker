@@ -10,6 +10,11 @@
 
 # production
 /build
+/styleguide/build
+precache-manifest.*
+service-worker.js
+asset-manifest.json
+index.html
 
 # misc
 .DS_Store
