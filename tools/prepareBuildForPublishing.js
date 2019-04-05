@@ -17,7 +17,7 @@ const { version } = readPkg.sync({ cwd: stormbreakerBasePath });
 
 latestVersion('stormbreaker').then(publishedVersion => {
 	/* if the latest version is already published, skip this entire script */
-	console.log(`Published Version ${publishedVersion} + version ${version}`);
+	console.log(`Published Version ${publishedVersion} === version ${version}`);
 	if (publishedVersion === version) {
 		console.log(`This version (${version}) is already published.`);
 		process.exit(0);

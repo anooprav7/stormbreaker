@@ -1,31 +1,33 @@
 // https://github.com/everydayhero/constructicon/blob/master/styleguide.styles.js
 
 const rhythm = (value = 1, unit = 'rem', basis = 1.5) =>
-	Array.isArray(value) ? value.map(v => `${basis * v}${unit}`).join(' ') : `${basis * value}${unit}`;
+	Array.isArray(value)
+		? value.map(v => `${basis * v}${unit}`).join(' ')
+		: `${basis * value}${unit}`;
 
-// const colors = {
-// 	light: '#fff',
-// 	dark: '#000',
-// 	grey: '#7a898f',
-// 	lightGrey: '#aec0c6',
-// 	paleGrey: '#ebf1f3',
-// 	primary: '#50b7e8',
-// 	secondary: '#ad29b6',
-// 	tertiary: '#203a44',
-// 	danger: '#d9534f'
-// };
-// 5d5c61 379683 7395ae 557a95 b1a296
 const colors = {
 	light: '#fff',
 	dark: '#000',
-	grey: '#5d5c61',
-	lightGrey: '#379683',
+	grey: '#7a898f',
+	lightGrey: '#aec0c6',
 	paleGrey: '#ebf1f3',
-	primary: '#7395ae',
-	secondary: '#557a95',
-	tertiary: '#b1a296',
+	primary: '#50b7e8',
+	secondary: '#ad29b6',
+	tertiary: '#203a44',
 	danger: '#d9534f'
 };
+// 5d5c61 379683 7395ae 557a95 b1a296
+// const colors = {
+// 	light: '#fff',
+// 	dark: '#000',
+// 	grey: '#5d5c61',
+// 	lightGrey: '#379683',
+// 	paleGrey: '#ebf1f3',
+// 	primary: '#7395ae',
+// 	secondary: '#557a95',
+// 	tertiary: '#b1a296',
+// 	danger: '#d9534f'
+// };
 
 const theme = {
 	color: {
@@ -43,8 +45,9 @@ const theme = {
 		sidebarBackground: colors.primary
 	},
 	fontFamily: {
-		base: '"proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-		monospace: 'Consolas, "Liberation Mono", Menlo, monospace'
+		base:
+			'"Nunito Sans", "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+		monospace: '"Nunito Sans", Consolas, "Liberation Mono", Menlo, monospace'
 	},
 	fontSize: {
 		base: 15,

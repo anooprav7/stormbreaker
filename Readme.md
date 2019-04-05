@@ -18,6 +18,18 @@ Rebass - Box - Flex - Image - Card
 -   Switch
 -   Loading
 
+Font
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+
 Javascript in Depth
 
 Node JS
+
+Swiggy color scheme
+
+-   #60b246
+-   font
+    -   #7e808c
+    -   #3d4152
+    -   #282c3f
