@@ -6,7 +6,13 @@
 		light: '',
 		dark: '',
 		constrastText: '#000'
-	},
+    },
+    
+    -   #60b246
+-   font
+    -   #7e808c
+    -   #3d4152
+    -   #282c3f
 */
 
 const colors = {
@@ -41,9 +47,9 @@ const colors = {
 		constrastText: '#000'
 	},
 	text: {
-		primary: rgba(0, 0, 0, 0.87), //'#333',
-		secondary: rgba(0, 0, 0, 0.54),
-		disabled: rgba(0, 0, 0, 0.32)
+		primary: '#000',
+		secondary: '#000',
+		disabled: '#000'
 	}
 };
 
