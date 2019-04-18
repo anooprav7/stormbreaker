@@ -15,6 +15,7 @@ const stormbreakerBasePath = path.dirname(require.resolve(MODULE_NAMES.stormbrea
 const filesToCopyToBuildFolder = ['aggregator.js', 'index.js', 'package.json'];
 const directoriesToCopyToBuildFolder = ['compounds', 'elements'];
 
+console.clear();
 indent.nl(1).tab(2);
 warn.b(' Stormbreaker build ');
 indent.nl(1);

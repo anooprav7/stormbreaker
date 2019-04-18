@@ -1,6 +1,6 @@
 {
 	"name": "stormbreaker",
-	"version": "0.1.8",
+	"version": "0.1.13",
 	"description": "Stormbreaker Component Library",
 	"main": "index.js",
 	"scripts": {

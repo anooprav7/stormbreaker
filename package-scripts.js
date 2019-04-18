@@ -17,9 +17,14 @@ module.exports = {
 			script: 'cd docs && yarn start',
 			description: 'Run playground from docs'
 		},
+		status: {
+			default: {
+				script: 'cd tools && node checkPackageVersionsWithNPM.js'
+			}
+		},
 		publish: {
 			stormbreaker: {
-				script: 'cd core/components/build && npm publish',
+				script: 'cd tools && node publishToNPM.js',
 				description: 'Publish stormbreaker to npm'
 			},
 			tokens: {}

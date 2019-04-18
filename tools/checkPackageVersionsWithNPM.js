@@ -13,7 +13,9 @@ let packageProcessCompletedCount = 0;
 let packageProcessFailCount = 0;
 
 console.clear();
-indent.nl(2);
+indent.nl(1).tab(2);
+warn.m('NPM Packages');
+indent.nl(1);
 
 packagesToDeploy.map(packageName => {
 	const basePath = path.dirname(require.resolve(packageName));
