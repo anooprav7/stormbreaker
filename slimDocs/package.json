@@ -1,0 +1,26 @@
+{
+	"name": "slimdocs",
+	"version": "0.0.1",
+	"description": "slim docs",
+	"main": "index.js",
+	"scripts": {
+		"docs:server": "styleguidist server",
+		"docs:build": "styleguidist build"
+	},
+	"author": "anooprav7@gmail.com",
+	"license": "MIT",
+	"dependencies": {
+		"stormbreaker": "^0.1.5",
+		"react-styleguidist": "8.0.6",
+		"@babel/core": "7.2.2",
+		"@svgr/webpack": "4.1.0",
+		"babel-core": "7.0.0-bridge.0",
+		"babel-loader": "8.0.5",
+		"babel-plugin-named-asset-import": "^0.3.1",
+		"babel-preset-react-app": "^7.0.1",
+		"file-loader": "2.0.0",
+		"html-webpack-plugin": "4.0.0-alpha.2",
+		"url-loader": "1.1.2",
+		"webpack": "4.28.3"
+	}
+}
