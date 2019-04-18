@@ -3,33 +3,42 @@
 
 module.exports = {
 	scripts: {
-		server: {
+		docs: {
 			default: {
 				script: 'cd docs && yarn start',
 				description: 'Run styleguidist server docs'
+			},
+			serveBuild: {
+				script: 'cd docs && serve -s styleguide',
+				description: 'Serve styleguidist build server docs locally'
 			}
 		},
 		play: {
 			script: 'cd docs && yarn start',
 			description: 'Run playground from docs'
 		},
+		status: {
+			default: {
+				script: 'cd tools && node checkPackageVersionsWithNPM.js'
+			}
+		},
 		publish: {
 			stormbreaker: {
-				script: 'cd core/components/build && npm publish',
+				script: 'cd tools && node publishToNPM.js',
 				description: 'Publish stormbreaker to npm'
 			},
 			tokens: {}
 		},
 		clean: {
 			stormbreaker: {
-				script: 'cd core/components && rm -rf build',
-				description: 'Remove stormbreaker build folder'
+				script: 'cd packages/stormbreaker && rm -rf publishBuild',
+				description: 'Remove stormbreaker publishBuild folder'
 			}
 		},
 		build: {
 			stormbreaker: {
 				script:
-					'nps clean.stormbreaker && node tools/prepareBuildForPublishing.js && cd core/components && yarn babel:build',
+					'nps clean.stormbreaker && node tools/preparePackagesForPublishing.js && cd packages/stormbreaker && yarn babel:build',
 				description: 'Build stormbreaker ready to publish'
 			},
 			token: {
@@ -42,7 +51,7 @@ module.exports = {
 			}
 		},
 		check: {
-			default: 'nps build.stormbreaker && cd core/components && yarn babel:build'
+			default: 'cd tools && node checkPackageVersionsWithNPM.js'
 		}
 	}
 };

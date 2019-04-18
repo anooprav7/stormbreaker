@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"private": true,
 	"workspaces": [
-		"packages/components",
+		"packages/stormbreaker",
 		"packages/tokens/anooprav7",
 		"docs"
 	],
@@ -18,10 +18,14 @@
 	"author": "anooprav7@gmail.com",
 	"license": "MIT",
 	"dependencies": {
+		"execa": "^1.0.0",
+		"fs-extra": "^7.0.1",
 		"latest-version": "5.0.0",
 		"mkdirp": "0.5.1",
 		"ncp": "2.0.0",
 		"nps": "5.9.3",
-		"read-pkg": "5.0.0"
+		"read-pkg": "5.0.0",
+		"semver": "^6.0.0",
+		"themed-cli": "^0.1.0"
 	}
 }
