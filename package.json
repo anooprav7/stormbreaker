@@ -5,10 +5,9 @@
 	"main": "index.js",
 	"private": true,
 	"workspaces": [
-		"core/components",
-		"core/tokens/anooprav7",
-		"docs",
-		"slimDocs"
+		"packages/components",
+		"packages/tokens/anooprav7",
+		"docs"
 	],
 	"scripts": {
 		"build": "babel core/components -d core/es --ignore *.test.js,*.story.js,makeStories.js"

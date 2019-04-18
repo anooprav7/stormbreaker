@@ -38,8 +38,8 @@ module.exports = {
 		return `import { ${lastName} } from 'stormbreaker'`;
 	},
 	styleguideComponents: {
-		Logo: path.join(__dirname, './styleguide/helperComponents/LibraryLogo'),
-		Wrapper: path.join(__dirname, './styleguide/helperComponents/ThemeWrapper')
+		Logo: path.join(__dirname, './src/helperComponents/LibraryLogo'),
+		Wrapper: path.join(__dirname, './src/helperComponents/ThemeWrapper')
 	},
 	sections: [
 		{
@@ -47,7 +47,7 @@ module.exports = {
 			sections: [
 				{
 					name: 'Getting Started',
-					content: path.resolve(__dirname, './styleguide/pages', 'getting-started.md')
+					content: path.resolve(__dirname, './src/pages', 'getting-started.md')
 				}
 			]
 		},
@@ -68,5 +68,5 @@ module.exports = {
 			}
 		}
 	],
-	webpackConfig: require('./config/webpack.config.js')('development')
+	webpackConfig: require('./webpack.config.js')
 };

@@ -13,7 +13,7 @@ const Logo = () =>
 			href: 'https://github.com/anooprav7',
 			target: '_blank'
 		},
-		React.createElement('span', { className: 'rsg-logo-name' }, capitalize(name)),
+		React.createElement('span', { className: 'rsg-logo-name' }, 'Stormbreaker'),
 		React.createElement('em', { className: 'rsg-logo-version' }, `v${version}`)
 	);
 
