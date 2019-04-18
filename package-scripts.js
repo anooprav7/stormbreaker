@@ -46,7 +46,7 @@ module.exports = {
 			}
 		},
 		check: {
-			default: 'nps build.stormbreaker && cd core/components && yarn babel:build'
+			default: 'cd tools && node publishTonpm.js'
 		}
 	}
 };
