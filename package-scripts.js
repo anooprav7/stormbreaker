@@ -8,9 +8,9 @@ module.exports = {
 				script: 'cd docs && yarn start',
 				description: 'Run styleguidist server docs'
 			},
-			build: {
-				script: 'cd docs && yarn build',
-				description: 'Run styleguidist server docs'
+			serveBuild: {
+				script: 'cd docs && serve -s styleguide',
+				description: 'Serve styleguidist build server docs locally'
 			}
 		},
 		play: {
