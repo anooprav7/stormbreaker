@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"private": true,
 	"workspaces": [
-		"packages/components",
+		"packages/stormbreaker",
 		"packages/tokens/anooprav7",
 		"docs"
 	],

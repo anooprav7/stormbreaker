@@ -3,9 +3,13 @@
 
 module.exports = {
 	scripts: {
-		server: {
+		docs: {
 			default: {
 				script: 'cd docs && yarn start',
+				description: 'Run styleguidist server docs'
+			},
+			build: {
+				script: 'cd docs && yarn build',
 				description: 'Run styleguidist server docs'
 			}
 		},
@@ -22,14 +26,14 @@ module.exports = {
 		},
 		clean: {
 			stormbreaker: {
-				script: 'cd core/components && rm -rf build',
-				description: 'Remove stormbreaker build folder'
+				script: 'cd packages/stormbreaker && rm -rf publishBuild',
+				description: 'Remove stormbreaker publishBuild folder'
 			}
 		},
 		build: {
 			stormbreaker: {
 				script:
-					'nps clean.stormbreaker && node tools/prepareBuildForPublishing.js && cd core/components && yarn babel:build',
+					'nps clean.stormbreaker && node tools/preparePackagesForPublishing.js && cd packages/stormbreaker && yarn babel:build',
 				description: 'Build stormbreaker ready to publish'
 			},
 			token: {

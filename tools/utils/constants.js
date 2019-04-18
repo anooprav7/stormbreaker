@@ -4,5 +4,8 @@ module.exports = {
 		tokens: {
 			anooprav7: '@anooprav7/token'
 		}
+	},
+	PUBLISH_READY_FOLDER_NAMES: {
+		stormbreaker: 'publishBuild'
 	}
 };

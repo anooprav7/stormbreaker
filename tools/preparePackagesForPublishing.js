@@ -9,12 +9,16 @@ const latestVersion = require('latest-version');
 const MODULE_NAMES = require('./utils/constants').MODULE_NAMES;
 const copyFile = require('./utils/_fileHelpers').copyFile;
 
+const PRODUCTION_BUILD_FOLDER_NAME = 'publishBuild';
+
 const stormbreakerBasePath = path.dirname(require.resolve(MODULE_NAMES.stormbreaker));
 const filesToCopyToBuildFolder = ['aggregator.js', 'index.js', 'package.json'];
 const directoriesToCopyToBuildFolder = ['compounds', 'elements'];
 
 const { version } = readPkg.sync({ cwd: stormbreakerBasePath });
-
+/**
+ *
+ */
 latestVersion('stormbreaker').then(publishedVersion => {
 	/* if the latest version is already published, skip this entire script */
 	console.log(`Published Version ${publishedVersion} === version ${version}`);
@@ -25,18 +29,18 @@ latestVersion('stormbreaker').then(publishedVersion => {
 
 	console.log('Stormbreaker build');
 
-	mkdirp(`${stormbreakerBasePath}/build`, function(err) {
+	mkdirp(`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}`, function(err) {
 		if (err) {
 			console.error(err);
 			process.exit(1);
 		}
-		console.log('build folder created');
+		console.log(`${PRODUCTION_BUILD_FOLDER_NAME} folder created`);
 
 		// Copying required Files
 		filesToCopyToBuildFolder.forEach(fileName => {
 			copyFile(
 				`${stormbreakerBasePath}/${fileName}`,
-				`${stormbreakerBasePath}/build/${fileName}`,
+				`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}/${fileName}`,
 				() => {
 					console.log(`File ${fileName} copy Successful`);
 				}
@@ -47,7 +51,7 @@ latestVersion('stormbreaker').then(publishedVersion => {
 		directoriesToCopyToBuildFolder.forEach(folderName => {
 			ncp(
 				`${stormbreakerBasePath}/${folderName}`,
-				`${stormbreakerBasePath}/build/${folderName}`,
+				`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}/${folderName}`,
 				function(err) {
 					if (err) {
 						console.error(err);
