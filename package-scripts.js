@@ -5,7 +5,7 @@ module.exports = {
 	scripts: {
 		server: {
 			default: {
-				script: 'cd docs && yarn docs:server',
+				script: 'cd docs && yarn start',
 				description: 'Run styleguidist server docs'
 			}
 		},
@@ -37,7 +37,7 @@ module.exports = {
 				description: 'Build @anooprav7/token to npm'
 			},
 			docs: {
-				script: 'cd docs && yarn docs:build',
+				script: 'cd docs && yarn build',
 				description: 'Build styleguidist server docs to host somewhere'
 			}
 		},

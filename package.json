@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"private": true,
 	"workspaces": [
-		"core/components",
-		"core/tokens/anooprav7",
+		"packages/components",
+		"packages/tokens/anooprav7",
 		"docs"
 	],
 	"scripts": {
