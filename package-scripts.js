@@ -46,7 +46,7 @@ module.exports = {
 			}
 		},
 		check: {
-			default: 'cd tools && node publishTonpm.js'
+			default: 'cd tools && node checkPackageVersionsWithNPM.js'
 		}
 	}
 };

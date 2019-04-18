@@ -2,19 +2,18 @@ const latestVersion = require('latest-version');
 const path = require('path');
 const readPkg = require('read-pkg');
 const semver = require('semver');
-const { exec } = require('child_process');
 const { info, warn, log, error, indent } = require('themed-cli');
-const fs = require('fs-extra');
-const execa = require('execa');
 
 const MODULE_NAMES = require('./utils/constants').MODULE_NAMES;
-const PRODUCTION_BUILD_FOLDER_NAME = 'publishBuild';
 
 const packagesToDeploy = [MODULE_NAMES.stormbreaker, MODULE_NAMES.tokens.anooprav7];
 
 const totalPackageCount = packagesToDeploy.length;
 let packageProcessCompletedCount = 0;
 let packageProcessFailCount = 0;
+
+console.clear();
+indent.nl(2);
 
 packagesToDeploy.map(packageName => {
 	const basePath = path.dirname(require.resolve(packageName));
@@ -25,17 +24,17 @@ packagesToDeploy.map(packageName => {
 });
 
 function CheckVersions(packageName, npmVersion, localVersion, callback) {
-	indent.nl(1).tab(2);
+	//indent.tab(2);
 	warn('PACKAGE', `${packageName} `);
-	log.m(`npm ${npmVersion}`);
-	log.m(`Local ${localVersion}`);
+	log.m(`NPM     v${npmVersion}`);
+	log.m(`Current v${localVersion}`);
 	if (semver.lt(semver.clean(npmVersion), semver.clean(localVersion))) {
-		info('STATUS', 'PASS');
-	} else {
-		error('STATUS', 'FAIL');
+		error('STATUS', 'OUTDATED');
 		packageProcessFailCount++;
+	} else {
+		info('STATUS', 'CURRENT');
 	}
-	indent.nl(1);
+	indent.nl(2);
 	callback();
 }
 
@@ -43,28 +42,10 @@ function finallyPublishToNPM() {
 	packageProcessCompletedCount++;
 	if (packageProcessCompletedCount === totalPackageCount) {
 		if (packageProcessFailCount > 0) {
-			error('FAIL', `${packageProcessFailCount} package(s) failed. Please update version`);
+			error('FAIL', `${packageProcessFailCount} outdated package(s). Please publish latest packages to npm`);
 		} else {
-			info('SUCCESS', `Publishing Started`);
-			packagesToDeploy.map(packageName => {
-				const basePath = path.dirname(require.resolve(packageName));
-				fs.pathExists(`${basePath}/${PRODUCTION_BUILD_FOLDER_NAME}`, (err, exists) => {
-					//console.log(err); // => null
-					// log.m(`${packageName} folder - ${exists}`); // => false
-					let publishBasePath = basePath;
-					if (exists) {
-						publishBasePath = `${basePath}/${PRODUCTION_BUILD_FOLDER_NAME}`;
-					}
-					process.chdir(publishBasePath);
-					try {
-						execa.shellSync('ls');
-						// execSync(`npm publish --access public`, { stdio: 'inherit' });
-					} catch (err) {
-						error(err);
-					}
-				});
-				//execSync(`npm publish --access public`, { stdio: 'inherit' });
-			});
+			info('SUCCESS', `All packages are up to date with npm`);
 		}
+		indent.nl(2);
 	}
 }
