@@ -6,6 +6,8 @@ const ncp = require('ncp').ncp;
 const readPkg = require('read-pkg');
 const latestVersion = require('latest-version');
 
+const { info, warn, log, error, indent } = require('themed-cli');
+
 const MODULE_NAMES = require('./utils/constants').MODULE_NAMES;
 const copyFile = require('./utils/_fileHelpers').copyFile;
 
@@ -19,22 +21,25 @@ const { version } = readPkg.sync({ cwd: stormbreakerBasePath });
 /**
  *
  */
+indent.nl(1).tab(2);
+warn.b(' Stormbreaker build ');
+indent.nl(1);
+
 latestVersion('stormbreaker').then(publishedVersion => {
 	/* if the latest version is already published, skip this entire script */
-	console.log(`Published Version ${publishedVersion} === version ${version}`);
+	log(`Published Version ${publishedVersion} === Current version ${version}`);
 	if (publishedVersion === version) {
-		console.log(`This version (${version}) is already published.`);
+		// console.log(`This version (${version}) is already published.`);
+		error(`This version (${version}) is already published.`);
 		process.exit(0);
 	}
 
-	console.log('Stormbreaker build');
-
 	mkdirp(`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}`, function(err) {
 		if (err) {
-			console.error(err);
+			error(err);
 			process.exit(1);
 		}
-		console.log(`${PRODUCTION_BUILD_FOLDER_NAME} folder created`);
+		info('SUCCESS', `'${PRODUCTION_BUILD_FOLDER_NAME}' folder created`);
 
 		// Copying required Files
 		filesToCopyToBuildFolder.forEach(fileName => {
@@ -42,22 +47,22 @@ latestVersion('stormbreaker').then(publishedVersion => {
 				`${stormbreakerBasePath}/${fileName}`,
 				`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}/${fileName}`,
 				() => {
-					console.log(`File ${fileName} copy Successful`);
+					info('SUCCESS', `File ${fileName} copy Successful`);
 				}
 			);
 		});
 
 		// Copying required folders
-		directoriesToCopyToBuildFolder.forEach(folderName => {
+		directoriesToCopyToBuildFolder.forEach((folderName, index, array) => {
 			ncp(
 				`${stormbreakerBasePath}/${folderName}`,
 				`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}/${folderName}`,
 				function(err) {
 					if (err) {
-						console.error(err);
+						error(err);
 						process.exit(1);
 					}
-					console.log(`Folder ${folderName} copy Successful`);
+					info('SUCCESS', `Folder ${folderName} copy Successful`);
 				}
 			);
 		});
