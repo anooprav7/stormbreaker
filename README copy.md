@@ -4,6 +4,7 @@ nps usage - ./node_modules/bin
 
 Files to create
 theme.js - @anooprav7/tokens
+custom-1
 
 Components to build first
 
