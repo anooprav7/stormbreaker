@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
-    background: ${props => props.theme.baseColor || '#FFF'}
-    margin: 10px 25px;
-`;
-
-export default function Button(props) {
-	return <StyledButton>{props.children}</StyledButton>;
+export default function CompoundButton(props) {
+	return <div>{props.children}</div>;
 }
 
-Button.propTypes = {
+CompoundButton.propTypes = {
 	/** The size of the button */
 	size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
 
@@ -49,7 +44,7 @@ Button.propTypes = {
 	onClick: PropTypes.func
 };
 
-Button.defaultProps = {
+CompoundButton.defaultProps = {
 	size: 'default',
 	appearance: 'default',
 	icon: null,

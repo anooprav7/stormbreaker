@@ -9,17 +9,9 @@ const fs = require('fs-extra');
 const MODULE_NAMES = require('./utils/constants').MODULE_NAMES;
 const PRODUCTION_BUILD_FOLDER_NAME = 'publishBuild';
 
-// const packagesToDeploy = [MODULE_NAMES.stormbreaker, MODULE_NAMES.tokens.anooprav7];
-
 const packageToDeploy = MODULE_NAMES.stormbreaker;
 console.clear();
-/*
-packagesToDeploy.map(packageName => {
-	const basePath = path.dirname(require.resolve(packageName));
-    const packageJSONVersion = readPkg.sync({ cwd: basePath }).version;
-    
-});
-*/
+
 const basePath = path.dirname(require.resolve(packageToDeploy));
 const packageJSONVersion = readPkg.sync({ cwd: basePath }).version;
 

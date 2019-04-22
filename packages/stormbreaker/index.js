@@ -1,2 +1,2 @@
-import { Button, Image } from './aggregator';
-export { Button, Image };
+import { Button, Image, Loader } from './aggregator';
+export { Button, Image, Loader };
