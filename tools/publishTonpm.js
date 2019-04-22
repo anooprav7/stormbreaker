@@ -3,24 +3,15 @@ const path = require('path');
 const readPkg = require('read-pkg');
 const semver = require('semver');
 const { execSync } = require('child_process');
-const { info, warn, log, error, indent } = require('themed-cli');
+const { info, warn, log, error, indent } = require('pretty-console-logs');
 const fs = require('fs-extra');
-const execa = require('execa');
 
 const MODULE_NAMES = require('./utils/constants').MODULE_NAMES;
 const PRODUCTION_BUILD_FOLDER_NAME = 'publishBuild';
 
-// const packagesToDeploy = [MODULE_NAMES.stormbreaker, MODULE_NAMES.tokens.anooprav7];
-
 const packageToDeploy = MODULE_NAMES.stormbreaker;
 console.clear();
-/*
-packagesToDeploy.map(packageName => {
-	const basePath = path.dirname(require.resolve(packageName));
-    const packageJSONVersion = readPkg.sync({ cwd: basePath }).version;
-    
-});
-*/
+
 const basePath = path.dirname(require.resolve(packageToDeploy));
 const packageJSONVersion = readPkg.sync({ cwd: basePath }).version;
 
@@ -34,10 +25,10 @@ function CheckVersions(packageName, npmVersion, localVersion, callbackWhenValid)
 	log.m(`npm ${npmVersion}`);
 	log.m(`Local ${localVersion}`);
 	if (semver.lt(semver.clean(npmVersion), semver.clean(localVersion))) {
-		info('STATUS', 'PASS');
+		success.bm('STATUS', 'PASS');
 		callbackWhenValid(packageName);
 	} else {
-		error('STATUS', 'FAIL');
+		error.bm('STATUS', 'FAIL');
 	}
 	indent.nl(1);
 }

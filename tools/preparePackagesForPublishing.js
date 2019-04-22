@@ -4,7 +4,7 @@ const mkdirp = require('mkdirp');
 const ncp = require('ncp').ncp;
 // const fs = require('fs-extra');
 
-const { info, warn, log, error, indent } = require('themed-cli');
+const { success, info, warn, log, error, indent } = require('pretty-console-logs');
 
 const copyFile = require('./utils/_fileHelpers').copyFile;
 
@@ -27,15 +27,17 @@ mkdirp(`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}`, function(err) 
 		error(err);
 		process.exit(1);
 	}
-	info('SUCCESS', `'${PRODUCTION_BUILD_FOLDER_NAME}' folder created`);
-
+	success(`'${PRODUCTION_BUILD_FOLDER_NAME}' folder created`);
+	info.nl(1)
+		.m('Copying required Files & Folders')
+		.nl(1);
 	// Copying required Files
 	filesToCopyToBuildFolder.forEach(fileName => {
 		copyFile(
 			`${stormbreakerBasePath}/${fileName}`,
 			`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}/${fileName}`,
 			() => {
-				info('SUCCESS', `File ${fileName} copy Successful`);
+				success(`File ${fileName} copy Successful`);
 			}
 		);
 	});
@@ -50,7 +52,7 @@ mkdirp(`${stormbreakerBasePath}/${PRODUCTION_BUILD_FOLDER_NAME}`, function(err) 
 					error(err);
 					process.exit(1);
 				}
-				info('SUCCESS', `Folder ${folderName} copy Successful`);
+				success(`Folder ${folderName} copy Successful`);
 			}
 		);
 	});

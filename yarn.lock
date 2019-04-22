@@ -6442,6 +6442,13 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
+pretty-console-logs@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/pretty-console-logs/-/pretty-console-logs-0.2.1.tgz#65415424f51efe09ea7286830e6ec147858752bc"
+  integrity sha512-z7LwmXsmPoVJQA6XNZdGJyY4xlL9aSKSbpJCbZ8vwbXwUtvHTYX4P7cvSr/kVvRYtFkwkLgfRWyv+bGPzSLFOA==
+  dependencies:
+    chalk "2.4.2"
+
 pretty-error@^2.0.2:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.1.tgz#5f4f87c8f91e5ae3f3ba87ab4cf5e03b1a17f1a3"
@@ -8066,13 +8073,6 @@ text-table@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
-
-themed-cli@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/themed-cli/-/themed-cli-0.1.0.tgz#3354b4f54a646c1e5d1a21831596bcd6330f60e5"
-  integrity sha512-mX3P+4+XFdy9O74tKi/3ICqAnnnKCMepvm76l2oNqE3JxjwJ/TasGMl9BS/jk8ywzblxupa9Ht75BOJpea96Gw==
-  dependencies:
-    chalk "2.4.2"
 
 through2@^2.0.0:
   version "2.0.5"
