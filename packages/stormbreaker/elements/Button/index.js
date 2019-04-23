@@ -2,20 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Loader from '../Loader';
+import { ICON_NAMES } from '../Icon';
 
 const StyledButton = styled.button`
 	background: #fff;
-	padding: 10px 25px;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 140px;
+	border-radius: 3px;
+	padding: 0px 16px;
 `;
 
 export default function Button(props) {
 	const { loading } = props;
-	return <StyledButton>{loading ? <Loader size='small' /> : props.children}</StyledButton>;
+	//console.log(ICON_NAMES);
+	return (
+		<StyledButton>
+			<span>{loading && <Loader size='small' />}</span> <span>{props.children}</span>
+		</StyledButton>
+	);
 }
 
 Button.propTypes = {
 	/** The size of the button */
-	size: PropTypes.oneOf(['default', 'large', 'small']),
+	size: PropTypes.oneOf(['small', 'medium', 'large']),
 
 	/** Kind of Button */
 	variant: PropTypes.oneOf(['fill', 'outline']),
@@ -27,7 +40,7 @@ Button.propTypes = {
 	block: PropTypes.bool,
 
 	/** icon to be used  */
-	icon: PropTypes.string, //  TODO : add the array of icons supported here
+	icon: PropTypes.oneOf(ICON_NAMES), //  TODO : add the array of icons supported here
 
 	/** Which side of the Button Text should be the icon horizontally */
 	iconAlign: PropTypes.oneOf(['left', 'right']),
@@ -49,12 +62,14 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-	size: 'default',
-	appearance: 'default',
+	size: 'medium',
 	variant: 'fill',
+	shape: 'round',
+	block: false,
 	icon: null,
 	iconAlign: 'left',
 	disabled: false,
-	loading: false
+	loading: false,
+	type: 'button'
 	// success: false
 };

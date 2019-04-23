@@ -4,5 +4,5 @@
 
 ```js
 <Button>Save</Button>
-<Button loading>Save</Button>
+<Button loading>Loading</Button>
 ```

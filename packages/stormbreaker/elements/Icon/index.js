@@ -12,12 +12,7 @@ export default function Icon(props) {
 
 	return (
 		<Icon.Element {...props}>
-			<Image
-				width={props.size}
-				height={props.size}
-				viewBox={`0 0 ${icon.width} ${icon.height}`}
-				color={color}
-			>
+			<Image width={props.size} height={props.size} viewBox={`0 0 ${icon.width} ${icon.height}`} color={color}>
 				{icon.paths.map((path, index) => (
 					<path key={index} d={path} />
 				))}
@@ -45,7 +40,7 @@ const Image = styled.svg`
 `;
 
 const ICON_NAMES = Object.keys(icons);
-
+export { ICON_NAMES };
 Icon.propTypes = {
 	/** Icon name */
 	name: PropTypes.oneOf(ICON_NAMES).isRequired,
