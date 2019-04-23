@@ -6,14 +6,6 @@ const { styles, theme } = require('./styleguide.styles');
 
 const { lstatSync, readdirSync } = require('fs');
 const { join } = require('path');
-const fs = require('fs');
-
-if (process.env.NODE_ENV === 'production') {
-	fs.copyFile('./src/images/favicon.ico', './styleguide/favicon.ico', err => {
-		if (err) throw err;
-		console.log('favicon copy done');
-	});
-}
 
 const isDirectory = source => lstatSync(source).isDirectory();
 const getDirectoriesAndAddIndex = source =>
