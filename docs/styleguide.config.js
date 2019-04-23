@@ -7,6 +7,8 @@ const { styles, theme } = require('./styleguide.styles');
 const { lstatSync, readdirSync } = require('fs');
 const { join } = require('path');
 
+const FAVICON_URL = `https://firebasestorage.googleapis.com/v0/b/mycdn-anooprav7.appspot.com/o/stormbreaker.png?alt=media&token=79cd08e5-ecbf-44cb-8b3b-38a63fddfb13`;
+
 const isDirectory = source => lstatSync(source).isDirectory();
 const getDirectoriesAndAddIndex = source =>
 	readdirSync(source)
@@ -25,7 +27,7 @@ const compoundDirs = getDirectoriesAndAddIndex(`${masterPath}/compounds`);
 module.exports = {
 	title: `Stormbreaker`,
 	editorConfig: { theme: 'cobalt' },
-	template: { filename: './styleguide.template.html', favicon: './favicon.ico' },
+	template: { filename: './styleguide.template.html', favicon: FAVICON_URL },
 	serverPort: 7007,
 	usageMode: 'expand',
 	styles,
