@@ -2,7 +2,7 @@
 
 const path = require('path');
 const { styles, theme } = require('./styleguide.styles');
-const { version } = require('./package.json');
+// const { version } = require('stormbreaker/package.json');
 
 const { lstatSync, readdirSync } = require('fs');
 const { join } = require('path');
@@ -23,9 +23,9 @@ const elementDirs = getDirectoriesAndAddIndex(`${masterPath}/elements`);
 const compoundDirs = getDirectoriesAndAddIndex(`${masterPath}/compounds`);
 
 module.exports = {
-	title: `Stormbreaker ${version}`,
+	title: `Stormbreaker`,
 	editorConfig: { theme: 'cobalt' },
-	template: { filename: './styleguide.template.html', favicon: './images/favicon.ico' },
+	template: { filename: './styleguide.template.html', favicon: './src/images/favicon.ico' },
 	serverPort: 7007,
 	usageMode: 'expand',
 	styles,

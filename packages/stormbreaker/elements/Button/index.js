@@ -13,7 +13,7 @@ const StyledButton = styled.button`
 
 	min-width: 140px;
 	border-radius: 3px;
-	padding: 0px 16px;
+	padding: 12px 0px;
 `;
 
 export default function Button(props) {
@@ -21,7 +21,7 @@ export default function Button(props) {
 	//console.log(ICON_NAMES);
 	return (
 		<StyledButton>
-			<span>{loading && <Loader size='small' />}</span> <span>{props.children}</span>
+			{loading && <Loader size='small' mr={2} />} <span>{props.children}</span>
 		</StyledButton>
 	);
 }

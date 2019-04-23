@@ -1,5 +1,5 @@
 ```js
-<Icon name='left_arrow' />
+<Icon name='star' />
 ```
 
 ### Available Icons
