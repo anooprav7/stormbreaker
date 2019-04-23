@@ -1,30 +1,26 @@
 ## Stormbreaker Component Library
 
+#### NOTES
+
 nps usage - ./node_modules/bin
 
-Files to create
-theme.js - @anooprav7/tokens
+### TODO
 
-Components to build first
+-   Components to build first
+-   theme with styled-system
+-   Components to build first
+    -   Accordion
+    -   Button
+    -   Typography
+    -   Image
+    -   Switch
+    -   Spinner
 
-theme with styled-system
-
-Rebass - Box - Flex - Image - Card
-
--   Accordion
--   Button
--   Typography
--   Image
--   Switch
--   Loading
-
-Font
+#### Font
 
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
 
-Javascript in Depth
-
-Node JS
+### Notes
 
 Swiggy color scheme
 
