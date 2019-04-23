@@ -25,7 +25,7 @@ const compoundDirs = getDirectoriesAndAddIndex(`${masterPath}/compounds`);
 module.exports = {
 	title: `Stormbreaker`,
 	editorConfig: { theme: 'cobalt' },
-	template: { filename: './styleguide.template.html', favicon: './src/images/favicon.ico' },
+	template: { filename: './styleguide.template.html', favicon: './favicon.ico' },
 	serverPort: 7007,
 	usageMode: 'expand',
 	styles,
