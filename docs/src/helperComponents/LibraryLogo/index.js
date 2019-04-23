@@ -1,5 +1,6 @@
 const React = require('react');
-const { name, version } = require('../../../package.json');
+// const { name, version } = require('../../../package.json');
+const { version } = require('stormbreaker/package.json');
 
 const capitalize = string => {
 	return string.charAt(0).toUpperCase() + string.slice(1);

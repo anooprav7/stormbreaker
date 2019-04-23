@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { icons } from './icons.json';
 import PropTypes from 'prop-types';
+import { space } from 'styled-system';
 
 export default function Icon(props) {
 	// If the icon name isn't found, show a question mark instead.
@@ -26,6 +27,7 @@ Icon.Element = styled.i`
 	line-height: 1;
 	width: ${props => props.size}px;
 	height: ${props => props.size}px;
+	${space}
 `;
 
 const Image = styled.svg`

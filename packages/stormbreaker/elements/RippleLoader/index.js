@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
+import { space } from 'styled-system';
 
 const DURATION_IN_SECONDS = 0.6;
 
@@ -25,6 +26,7 @@ const Ripple = styled.div`
 	width: ${props => sizes[props.size] || 32}px;
 	height: ${props => sizes[props.size] || 32}px;
 	position: relative;
+	${space}
 	&:before {
 		transform: scale(1, 1);
 		opacity: 1;
