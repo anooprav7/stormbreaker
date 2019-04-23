@@ -2,8 +2,10 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 
+const DURATION_IN_SECONDS = 0.6;
+
 const spWaveAf = keyframes` 
-	from { transform: scale(0.25,0.25); opacity: 0; }
+	from { transform: scale(0,0); opacity: 0; }
 	to { transform: scale(0.5,0.5); opacity: 1; }
 `;
 
@@ -19,19 +21,19 @@ const sizes = {
 };
 
 // https://codepen.io/bernethe/pen/dorozd/
-const StyledLoader = styled.div`
+const Ripple = styled.div`
 	width: ${props => sizes[props.size] || 32}px;
 	height: ${props => sizes[props.size] || 32}px;
 	position: relative;
 	&:before {
 		transform: scale(1, 1);
 		opacity: 1;
-		animation: ${spWaveBe} 0.6s infinite linear;
+		animation: ${spWaveBe} ${DURATION_IN_SECONDS}s infinite linear;
 	}
 	&:after {
 		transform: scale(0, 0);
 		opacity: 0;
-		animation: ${spWaveAf} 0.6s infinite linear;
+		animation: ${spWaveAf} ${DURATION_IN_SECONDS}s infinite linear;
 	}
 	&:before,
 	&:after {
@@ -45,16 +47,16 @@ const StyledLoader = styled.div`
 	}
 `;
 
-export default function Loader(props) {
-	return <StyledLoader {...props} />;
+export default function RippleLoader(props) {
+	return <Ripple {...props} />;
 }
 
-Loader.propTypes = {
+RippleLoader.propTypes = {
 	/** Size of the loader */
 	size: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
-Loader.defaultProps = {
+RippleLoader.defaultProps = {
 	size: 'medium'
 };
 
