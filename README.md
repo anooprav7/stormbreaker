@@ -16,7 +16,7 @@ nps usage - ./node_modules/bin
     -   Switch
     -   Spinner
 
-#### Font
+### Font
 
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
 
