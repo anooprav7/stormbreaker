@@ -3,6 +3,10 @@
 ### Basic button
 
 ```js
-<Button>Save</Button>
-<Button loading>Loading</Button>
+<div style={{ display: 'flex', alignItems: 'center' }}>
+	<Button>Save</Button>
+	<Button loading ml={2}>
+		Loading
+	</Button>
+</div>
 ```

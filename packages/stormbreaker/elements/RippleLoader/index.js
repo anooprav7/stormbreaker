@@ -40,7 +40,7 @@ const Ripple = styled.div`
 	&:before,
 	&:after {
 		content: '';
-		border: 1px #333 solid;
+		border: 1px ${props => props.color} solid;
 		border-radius: 50%;
 		width: 100%;
 		height: 100%;
@@ -55,11 +55,13 @@ export default function RippleLoader(props) {
 
 RippleLoader.propTypes = {
 	/** Size of the loader */
-	size: PropTypes.oneOf(['small', 'medium', 'large'])
+	size: PropTypes.oneOf(['small', 'medium', 'large']),
+	color: PropTypes.string
 };
 
 RippleLoader.defaultProps = {
-	size: 'medium'
+	size: 'medium',
+	color: '#333'
 };
 
 /*

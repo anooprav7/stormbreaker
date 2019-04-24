@@ -3,16 +3,26 @@ import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import { space } from 'styled-system';
 
-const DURATION_IN_SECONDS = 0.6;
+const DURATION_IN_SECONDS = 1;
 
 const spin = keyframes`
     to { transform: rotate(360deg); }
 `;
 
 const sizes = {
-	small: 16,
+	small: 14,
 	medium: 24,
 	large: 36
+};
+const colorState = {
+	dark: {
+		primary: 'rgba(0, 0, 0, 0.4);',
+		secondary: 'rgba(0, 0, 0, 0.8);'
+	},
+	light: {
+		primary: '#414a4c',
+		secondary: '#d0d0d0'
+	}
 };
 
 // https://codepen.io/bernethe/pen/dorozd/
@@ -23,7 +33,9 @@ const StyledSpinner = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 50%;
 	border-top-color: #414a4c;
-	animation: ${spin} 1s linear infinite;
+	animation: ${spin} ${DURATION_IN_SECONDS}s linear infinite;
+	box-sizing: border-box;
+	${space}
 `;
 
 export default function Spinner(props) {
@@ -32,9 +44,12 @@ export default function Spinner(props) {
 
 Spinner.propTypes = {
 	/** Size of the loader */
-	size: PropTypes.oneOf(['small', 'medium', 'large'])
+	size: PropTypes.oneOf(['small', 'medium', 'large']),
+	/** Color of the Ripple lines */
+	colorState: PropTypes.oneOf(['dark', 'light'])
 };
 
 Spinner.defaultProps = {
-	size: 'medium'
+	size: 'medium',
+	colorState: 'dark'
 };
