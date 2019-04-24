@@ -68,6 +68,15 @@ module.exports = {
 			components: () => {
 				return [...compoundDirs];
 			}
+		},
+		{
+			name: 'Design Tokens',
+			sections: [
+				{
+					name: '@anooprav7/token',
+					content: path.resolve(__dirname, './src/pages/token', 'README.md')
+				}
+			]
 		}
 	],
 	webpackConfig: require('./webpack.config.js')

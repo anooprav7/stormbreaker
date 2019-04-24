@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Loader from '../RippleLoader';
 import { ICON_NAMES } from '../Icon';
+import { space } from 'styled-system';
 
 const StyledButton = styled.button`
 	background: #fff;
@@ -11,17 +12,34 @@ const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 
-	min-width: 140px;
+	min-width: 110px;
+	min-height: 40px;
+
+	text-transform: uppercase;
+
+	letter-spacing: 1px;
+	font-size: 12px;
+	font-weight: 500;
+	color: rgb(250, 250, 250);
+
+	opacity: ${props => (props.loading ? '0.6' : '1')};
+	cursor: pointer;
+	background: rgb(68, 199, 244);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(68, 199, 244);
+	border-image: initial;
 	border-radius: 3px;
-	padding: 12px 0px;
+	padding: 0px 16px;
+	${space}
 `;
 
 export default function Button(props) {
 	const { loading } = props;
 	//console.log(ICON_NAMES);
 	return (
-		<StyledButton>
-			{loading && <Loader size='small' mr={2} />} <span>{props.children}</span>
+		<StyledButton {...props}>
+			{loading ? <Loader size='medium' color='#fff' mr={2} /> : <span>{props.children}</span>}
 		</StyledButton>
 	);
 }
