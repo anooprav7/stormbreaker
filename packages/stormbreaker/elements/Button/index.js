@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Loader from '../RippleLoader';
 import { ICON_NAMES } from '../Icon';
 import { space } from 'styled-system';
+import Icon from '../Icon';
 
 const styles = {
 	width(props) {
@@ -11,7 +12,7 @@ const styles = {
 		return 'auto';
 	},
 	color(props) {
-		if (props.variant === 'outline') return props.theme.colors[props.colorState].light;
+		if (props.variant === 'outline') return props.theme.colors[props.colorState].dark;
 		return props.theme.colors[props.colorState].contrastText || 'rgb(68, 199, 244)';
 	},
 	opacity(props) {
@@ -22,7 +23,8 @@ const styles = {
 		return props.theme.colors[props.colorState].main || '#fff';
 	},
 	borderColor(props) {
-		return props.theme.colors[props.colorState].main || rgb(68, 199, 244);
+		if (props.variant === 'outline') return props.theme.colors[props.colorState].main || rgb(68, 199, 244);
+		return 'transparent';
 	},
 	borderRadius(props) {
 		switch (props.shape) {
@@ -36,6 +38,8 @@ const styles = {
 	},
 	hover: {
 		background(props) {
+			if (props.variant === 'outline')
+				return !props.loading && (props.theme.colors[props.colorState].main || '#fff');
 			return !props.loading && (props.theme.colors[props.colorState].dark || '#fff');
 		},
 		color(props) {
@@ -87,18 +91,27 @@ const StyledButton = styled(
 `;
 
 export default function Button(props) {
-	const { loading } = props;
-	//console.log(ICON_NAMES);
-	return (
-		<StyledButton {...props}>
-			{loading ? <Loader size='medium' color='#fff' mr={2} /> : <span>{props.children}</span>}
-		</StyledButton>
-	);
+	const { loading, icon, iconAlign, children, colorState } = props;
+	let content = [];
+	if (loading) {
+		content.push(<Loader size='medium' color='#fff' mr={2} />);
+	} else if (icon) {
+		if (iconAlign === 'right') {
+			content.push(<span>{children}</span>);
+			content.push(<Icon colorState={colorState} ml={2} name={icon} />);
+		} else {
+			content.push(<Icon colorState={colorState} name={icon} mr={2} />);
+			content.push(<span>{children}</span>);
+		}
+	} else {
+		content.push(<span>{children}</span>);
+	}
+	return <StyledButton {...props}>{content}</StyledButton>;
 }
 
 Button.propTypes = {
 	/** Purpose of the button so that the correct color scheme can be applied  */
-	colorState: PropTypes.oneOf(['primary', 'secondary']),
+	colorState: PropTypes.oneOf(['primary', 'secondary', 'error']),
 
 	/** The size of the button */
 	size: PropTypes.oneOf(['small', 'medium', 'large']),

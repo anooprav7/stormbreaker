@@ -33,6 +33,8 @@
 
 ```jsx
 <Button variant='outline'>Outline</Button>
+<Button variant='outline' ml={2} colorState="secondary">Outline</Button>
+<Button variant='outline' ml={2} colorState="error">Outline</Button>
 ```
 
 ### Button Shape
@@ -41,4 +43,18 @@
 <Button shape='round' >Round</Button>
 <Button shape='capsule' ml={2}>Capsule</Button>
 <Button shape='sharp' ml={2}>Sharp</Button>
+```
+
+### Icon Button
+
+```jsx
+<div style={{ display: 'flex', alignItems: 'center' }}>
+	<Button icon='settings'>Icon Left</Button>
+	<Button icon='settings' iconAlign='right' ml={2}>
+		Icon right
+	</Button>
+	<Button icon='delete' colorState='error' ml={2}>
+		Delete
+	</Button>
+</div>
 ```
