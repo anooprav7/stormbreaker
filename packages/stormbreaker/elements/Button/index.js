@@ -12,7 +12,7 @@ const styles = {
 		return 'auto';
 	},
 	color(props) {
-		if (props.variant === 'outline') return props.theme.colors[props.colorState].dark;
+		if (props.variant === 'outline') return props.theme.colors[props.colorState].main;
 		return props.theme.colors[props.colorState].contrastText || 'rgb(68, 199, 244)';
 	},
 	opacity(props) {
@@ -39,7 +39,7 @@ const styles = {
 	hover: {
 		background(props) {
 			if (props.variant === 'outline')
-				return !props.loading && (props.theme.colors[props.colorState].main || '#fff');
+				return !props.loading && (props.theme.colors[props.colorState].light || '#fff');
 			return !props.loading && (props.theme.colors[props.colorState].dark || '#fff');
 		},
 		color(props) {
@@ -91,16 +91,18 @@ const StyledButton = styled(
 `;
 
 export default function Button(props) {
-	const { loading, icon, iconAlign, children, colorState } = props;
+	const { loading, icon, iconAlign, children, colorState, variant } = props;
 	let content = [];
 	if (loading) {
 		content.push(<Loader size='medium' color='#fff' mr={2} />);
 	} else if (icon) {
+		let iconColorStateInvert = false;
+		if (variant === 'outline') iconColorStateInvert = true;
 		if (iconAlign === 'right') {
 			content.push(<span>{children}</span>);
-			content.push(<Icon colorState={colorState} ml={2} name={icon} />);
+			content.push(<Icon colorState={colorState} invert={iconColorStateInvert} ml={2} name={icon} />);
 		} else {
-			content.push(<Icon colorState={colorState} name={icon} mr={2} />);
+			content.push(<Icon colorState={colorState} invert={iconColorStateInvert} name={icon} mr={2} />);
 			content.push(<span>{children}</span>);
 		}
 	} else {
