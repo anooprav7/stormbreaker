@@ -7,7 +7,7 @@ import { space } from 'styled-system';
 const styles = {
 	color(props) {
 		if (props.colorState) {
-			console.log(props.theme.colors[props.colorState].contrastText);
+			if (props.invert) return props.theme.colors[props.colorState].dark || 'rgb(68, 199, 244)';
 			return props.theme.colors[props.colorState].contrastText || 'rgb(68, 199, 244)';
 		} else if (props.color) {
 			return props.color;
@@ -20,7 +20,7 @@ export default function Icon(props) {
 	const icon = icons[props.name] || icons.home;
 
 	// Use an icon name from tokens, fallback to hexcode (without validation)
-	const { colorState, color } = props;
+	const { colorState, color, invert } = props;
 
 	return (
 		<Icon.Element {...props}>
@@ -30,6 +30,7 @@ export default function Icon(props) {
 				viewBox={`0 0 ${icon.width} ${icon.height}`}
 				color={color}
 				colorState={colorState}
+				invert={invert}
 			>
 				{icon.paths.map((path, index) => (
 					<path key={index} d={path} />
@@ -69,10 +70,14 @@ Icon.propTypes = {
 	color: PropTypes.string,
 
 	/** Color state - Priority over color */
-	colorState: PropTypes.string
+	colorState: PropTypes.string,
+
+	/** If true, picks the main color instead of contrastText */
+	invert: PropTypes.bool
 };
 
 Icon.defaultProps = {
 	size: 20,
-	color: '#000'
+	color: '#000',
+	iconColorStateInvert: false
 };

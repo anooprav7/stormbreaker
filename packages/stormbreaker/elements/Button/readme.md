@@ -56,5 +56,11 @@
 	<Button icon='delete' colorState='error' ml={2}>
 		Delete
 	</Button>
+	<Button icon='delete' colorState='error' variant='outline' ml={2}>
+		Delete
+	</Button>
+	<Button icon='download' colorState='primary' variant='outline' ml={2}>
+		Download
+	</Button>
 </div>
 ```

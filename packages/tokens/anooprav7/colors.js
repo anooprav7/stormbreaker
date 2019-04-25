@@ -22,13 +22,13 @@ const colors = {
 	},
 	primary: {
 		main: '#44c7f4',
-		light: '#83faff',
+		light: '#4dd0e1',
 		dark: '#0096c1',
 		contrastText: '#FFFFFF'
 	},
 	secondary: {
 		main: '#13ce66',
-		light: '#FF4081',
+		light: '#81c784',
 		dark: '#009c39',
 		contrastText: '#FFFFFF'
 	},
