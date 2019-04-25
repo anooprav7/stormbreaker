@@ -21,16 +21,16 @@ const colors = {
 		white: '#FFFFFF'
 	},
 	primary: {
-		main: '#2196f3',
+		main: 'rgb(68, 199, 244)',
 		light: '#6ec6ff',
-		dark: '#0069c0',
+		dark: 'rgb(19, 183, 237)',
 		contrastText: '#FFFFFF'
 	},
 	secondary: {
-		main: '#F50057',
+		main: 'rgb(241, 241, 241)',
 		light: '#FF4081',
-		dark: '#C51162',
-		contrastText: '#FFFFFF'
+		dark: 'rgb(233, 232, 232)',
+		contrastText: '#00000'
 	},
 	disabled: {
 		opacity: 0.25
@@ -41,10 +41,10 @@ const colors = {
 		dark: '#323639'
 	},
 	error: {
-		main: '#ff5252',
-		light: '#ff867f',
-		dark: '#c50e29',
-		contrastText: '#000'
+		main: 'rgb(235, 84, 36)',
+		light: '#FF4081',
+		dark: 'rgb(217, 69, 20)',
+		contrastText: '#FFFFFF'
 	},
 	text: {
 		primary: '#000',

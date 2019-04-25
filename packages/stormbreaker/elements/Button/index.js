@@ -19,10 +19,10 @@ const styles = {
 	},
 	background(props) {
 		if (props.variant === 'outline') return '#fff';
-		return props.theme.colors[props.colorState].light || '#fff';
+		return props.theme.colors[props.colorState].main || '#fff';
 	},
 	borderColor(props) {
-		return props.theme.colors[props.colorState].light || rgb(68, 199, 244);
+		return props.theme.colors[props.colorState].main || rgb(68, 199, 244);
 	},
 	borderRadius(props) {
 		switch (props.shape) {
@@ -32,6 +32,14 @@ const styles = {
 				return '80px';
 			default:
 				return '4px';
+		}
+	},
+	hover: {
+		background(props) {
+			return !props.loading && (props.theme.colors[props.colorState].dark || '#fff');
+		},
+		color(props) {
+			if (props.variant === 'outline') return props.theme.colors[props.colorState].contrastText || '#fff';
 		}
 	}
 };
@@ -70,7 +78,12 @@ const StyledButton = styled(
 	${space}
 	&:focus {
 		outline: none;
-	}
+    }
+    &:hover {
+        background: ${styles.hover.background};
+        transition: background .6s ease;
+        color: ${styles.hover.color}
+    }
 `;
 
 export default function Button(props) {
