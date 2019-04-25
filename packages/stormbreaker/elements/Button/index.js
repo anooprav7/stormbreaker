@@ -5,12 +5,48 @@ import Loader from '../RippleLoader';
 import { ICON_NAMES } from '../Icon';
 import { space } from 'styled-system';
 
-const StyledButton = styled.button`
+const styles = {
+	width(props) {
+		if (props.block) return '100%';
+		return 'auto';
+	},
+	color(props) {
+		if (props.variant === 'outline') return props.theme.colors[props.colorState].light;
+		return props.theme.colors[props.colorState].contrastText || 'rgb(68, 199, 244)';
+	},
+	opacity(props) {
+		return props.loading ? '0.6' : '1';
+	},
+	background(props) {
+		if (props.variant === 'outline') return '#fff';
+		return props.theme.colors[props.colorState].light || '#fff';
+	},
+	borderColor(props) {
+		return props.theme.colors[props.colorState].light || rgb(68, 199, 244);
+	},
+	borderRadius(props) {
+		switch (props.shape) {
+			case 'sharp':
+				return '0px';
+			case 'capsule':
+				return '80px';
+			default:
+				return '4px';
+		}
+	}
+};
+
+const StyledButton = styled(
+	({ colorState, size, variant, shape, block, icon, iconAlign, href, disabled, loading, type, ...props }) => (
+		<button {...props} />
+	)
+)`
 	background: #fff;
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	width: ${styles.width};
 
 	min-width: 110px;
 	min-height: 40px;
@@ -20,18 +56,21 @@ const StyledButton = styled.button`
 	letter-spacing: 1px;
 	font-size: 12px;
 	font-weight: 500;
-	color: rgb(250, 250, 250);
+	color: ${styles.color};
 
-	opacity: ${props => (props.loading ? '0.6' : '1')};
+	opacity: ${styles.opacity};
 	cursor: pointer;
-	background: rgb(68, 199, 244);
+	background: ${styles.background};
 	border-width: 1px;
 	border-style: solid;
-	border-color: rgb(68, 199, 244);
-	border-image: initial;
-	border-radius: 3px;
-	padding: 0px 16px;
+	border-color: ${styles.borderColor} };
+
+	border-radius: ${styles.borderRadius};
+	padding: 0px 21px;
 	${space}
+	&:focus {
+		outline: none;
+	}
 `;
 
 export default function Button(props) {
@@ -45,6 +84,9 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
+	/** Purpose of the button so that the correct color scheme can be applied  */
+	colorState: PropTypes.oneOf(['primary', 'secondary']),
+
 	/** The size of the button */
 	size: PropTypes.oneOf(['small', 'medium', 'large']),
 
@@ -88,6 +130,7 @@ Button.defaultProps = {
 	iconAlign: 'left',
 	disabled: false,
 	loading: false,
-	type: 'button'
+	type: 'button',
+	colorState: 'primary'
 	// success: false
 };

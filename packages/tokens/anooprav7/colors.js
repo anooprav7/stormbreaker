@@ -24,13 +24,13 @@ const colors = {
 		main: '#2196f3',
 		light: '#6ec6ff',
 		dark: '#0069c0',
-		constrastText: '#FFFFFF'
+		contrastText: '#FFFFFF'
 	},
 	secondary: {
 		main: '#F50057',
 		light: '#FF4081',
 		dark: '#C51162',
-		constrastText: '#FFFFFF'
+		contrastText: '#FFFFFF'
 	},
 	disabled: {
 		opacity: 0.25
@@ -44,7 +44,7 @@ const colors = {
 		main: '#ff5252',
 		light: '#ff867f',
 		dark: '#c50e29',
-		constrastText: '#000'
+		contrastText: '#000'
 	},
 	text: {
 		primary: '#000',
