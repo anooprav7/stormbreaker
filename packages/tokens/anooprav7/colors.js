@@ -22,7 +22,7 @@ const colors = {
 	},
 	primary: {
 		main: '#44c7f4',
-		light: '#4dd0e1',
+		light: '#64b5f6',
 		dark: '#0096c1',
 		contrastText: '#FFFFFF'
 	},

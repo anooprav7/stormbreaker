@@ -44,6 +44,10 @@ const styles = {
 		},
 		color(props) {
 			if (props.variant === 'outline') return props.theme.colors[props.colorState].contrastText || '#fff';
+		},
+		borderColor(props) {
+			if (props.variant === 'outline') return props.theme.colors[props.colorState].light || rgb(68, 199, 244);
+			return 'transparent';
 		}
 	}
 };
@@ -87,6 +91,7 @@ const StyledButton = styled(
         background: ${styles.hover.background};
         transition: background .6s ease;
         color: ${styles.hover.color}
+        border-color: ${styles.hover.borderColor} };
     }
 `;
 
