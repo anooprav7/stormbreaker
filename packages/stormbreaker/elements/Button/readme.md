@@ -29,6 +29,12 @@
 <Button block>Block</Button>
 ```
 
+### Button Variants
+
+```jsx
+<Button variant='outline'>Outline</Button>
+```
+
 ### Button Shape
 
 ```jsx
