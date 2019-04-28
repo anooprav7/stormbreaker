@@ -18,6 +18,7 @@ nps usage - ./node_modules/bin
     -   Switch
     -   Spinner
     -   Card
+    -   Link component
 
 ### Font
 

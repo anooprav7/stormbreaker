@@ -93,7 +93,8 @@ const StyledButton = styled(
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+    justify-content: center;
+    font-family: sans-serif;
     width: ${styles.width};
 
     min-width: ${styles.minWidth};
@@ -126,6 +127,9 @@ const StyledButton = styled(
         border-color: ${styles.hover.borderColor} };
     }
 `;
+const LinkElement = styled(StyledButton.withComponent('a'))`
+	text-decoration: none;
+`;
 
 export default function Button(props) {
 	const { loading, icon, iconAlign, children, colorState, variant, href, disabled } = props;
@@ -145,6 +149,7 @@ export default function Button(props) {
 	} else {
 		content.push(<span>{children}</span>);
 	}
+
 	return <StyledButton {...props}>{content}</StyledButton>;
 }
 
@@ -176,9 +181,6 @@ Button.propTypes = {
 
 	/** Which side of the Button Text should be the icon horizontally */
 	iconAlign: PropTypes.oneOf(['left', 'right']),
-
-	/** The URL to navigate to when the button is clicked */
-	href: PropTypes.string,
 
 	/** Disables the button, reduces the opacity  */
 	disabled: PropTypes.bool,
