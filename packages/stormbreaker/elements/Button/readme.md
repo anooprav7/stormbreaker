@@ -37,12 +37,32 @@
 <Button variant='outline' ml={2} colorState="error">Outline</Button>
 ```
 
+### Button Sizes
+
+```jsx
+<Button size='small' >Small</Button>
+<Button ml={2}>Medium</Button>
+<Button size='large' ml={2}>Large</Button>
+```
+
 ### Button Shape
 
 ```jsx
-<Button shape='round' >Round</Button>
+<div style={{marginBottom: 7}}>
+<Button size="small" shape='round' >Round</Button>
+<Button shape='round' ml={2}>Round</Button>
+<Button size="large" shape='round' ml={2}>Round</Button>
+</div>
+<div style={{marginBottom: 7}}>
+<Button size="small" shape='capsule'>Capsule</Button>
 <Button shape='capsule' ml={2}>Capsule</Button>
+<Button size="large" shape='capsule' ml={2}>Capsule</Button>
+</div>
+<div style={{marginBottom: 7}}>
+<Button size="small" shape='sharp'>Sharp</Button>
 <Button shape='sharp' ml={2}>Sharp</Button>
+<Button size="large" shape='sharp' ml={2}>Sharp</Button>
+</div>
 ```
 
 ### Icon Button
