@@ -3,13 +3,41 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Loader from '../RippleLoader';
 import { ICON_NAMES } from '../Icon';
-import { space } from 'styled-system';
+import { space, width, fontSize } from 'styled-system';
 import Icon from '../Icon';
-
+const sizes = {
+	small: {
+		minWidth: '36px',
+		minHeight: '24px',
+		padding: '0px 8px',
+		fontSize: '10px'
+	},
+	medium: {
+		minWidth: '96px',
+		minHeight: '40px',
+		padding: '0px 16px',
+		fontSize: '12px'
+	},
+	large: {
+		minWidth: '96px',
+		minHeight: '56px',
+		padding: '0px 32px',
+		fontSize: '16px'
+	}
+};
 const styles = {
 	width(props) {
 		if (props.block) return '100%';
 		return 'auto';
+	},
+	minWidth(props) {
+		return sizes[props.size].minWidth || sizes['medium'].minWidth;
+	},
+	minHeight(props) {
+		return sizes[props.size].minHeight || sizes['medium'].minHeight;
+	},
+	fontSize(props) {
+		return sizes[props.size].fontSize || sizes['medium'].fontSize;
 	},
 	color(props) {
 		if (props.variant === 'outline') return props.theme.colors[props.colorState].main;
@@ -36,14 +64,18 @@ const styles = {
 				return '4px';
 		}
 	},
+	padding(props) {
+		return sizes[props.size].padding || sizes['medium'].padding;
+	},
 	hover: {
 		background(props) {
 			if (props.variant === 'outline')
-				return !props.loading && (props.theme.colors[props.colorState].light || '#fff');
+				// return !props.loading && (props.theme.colors[props.colorState].light || '#fff');
+				return !props.loading && 'rgba(0, 0, 0, 0.04)';
 			return !props.loading && (props.theme.colors[props.colorState].dark || '#fff');
 		},
 		color(props) {
-			if (props.variant === 'outline') return props.theme.colors[props.colorState].contrastText || '#fff';
+			//if (props.variant === 'outline') return props.theme.colors[props.colorState].contrastText || '#fff';
 		},
 		borderColor(props) {
 			if (props.variant === 'outline') return props.theme.colors[props.colorState].light || rgb(68, 199, 244);
@@ -51,7 +83,7 @@ const styles = {
 		}
 	}
 };
-
+//min-width: ${styles.minWidth};
 const StyledButton = styled(
 	({ colorState, size, variant, shape, block, icon, iconAlign, href, disabled, loading, type, ...props }) => (
 		<button {...props} />
@@ -62,15 +94,15 @@ const StyledButton = styled(
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	width: ${styles.width};
+    width: ${styles.width};
 
-	min-width: 110px;
-	min-height: 40px;
+    min-width: ${styles.minWidth};
+	min-height: ${styles.minHeight};
 
 	text-transform: uppercase;
 
 	letter-spacing: 1px;
-	font-size: 12px;
+	font-size: ${styles.fontSize};
 	font-weight: 500;
 	color: ${styles.color};
 
@@ -82,7 +114,7 @@ const StyledButton = styled(
 	border-color: ${styles.borderColor} };
 
 	border-radius: ${styles.borderRadius};
-	padding: 0px 21px;
+	padding: ${styles.padding};
 	${space}
 	&:focus {
 		outline: none;
@@ -96,7 +128,7 @@ const StyledButton = styled(
 `;
 
 export default function Button(props) {
-	const { loading, icon, iconAlign, children, colorState, variant } = props;
+	const { loading, icon, iconAlign, children, colorState, variant, href, disabled } = props;
 	let content = [];
 	if (loading) {
 		content.push(<Loader size='medium' color='#fff' mr={2} />);
@@ -115,6 +147,13 @@ export default function Button(props) {
 	}
 	return <StyledButton {...props}>{content}</StyledButton>;
 }
+
+/** TODOS
+ *      Remove opacity problem while loading not disabled
+ *      While Loading show text
+ *      Link button
+ *      Sizes implementation
+ */
 
 Button.propTypes = {
 	/** Purpose of the button so that the correct color scheme can be applied  */

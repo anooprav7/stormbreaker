@@ -5,7 +5,7 @@ import colors from './colors';
 export default {
 	breakpoints: ['544px', '768px', '1012px', '1280px'],
 	space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 80, 96, 112, 128],
-	fontSizes: [12, 14, 16, 20, 24, 32, 40, 48],
+	fontSizes: [10, 12, 14, 16, 20, 24, 32, 40, 48],
 	fontWeights: { light: 300, normal: 400, bold: 700 },
 	lineHeights: {
 		condensedUltra: 1,

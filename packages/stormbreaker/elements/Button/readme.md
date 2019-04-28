@@ -45,6 +45,14 @@
 <Button shape='sharp' ml={2}>Sharp</Button>
 ```
 
+### Button Sizes
+
+```jsx
+<Button size='small' >Small</Button>
+<Button ml={2}>Medium</Button>
+<Button size='large' ml={2}>Large</Button>
+```
+
 ### Icon Button
 
 ```jsx
