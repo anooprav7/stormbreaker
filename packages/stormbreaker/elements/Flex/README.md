@@ -1,0 +1,5 @@
+### Flex Container
+
+```js
+<Flex />
+```

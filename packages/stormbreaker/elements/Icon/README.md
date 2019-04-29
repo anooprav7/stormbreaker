@@ -11,6 +11,7 @@ const iconJSON = require('./icons.json').icons;
 	{' '}
 	{Object.keys(iconJSON).map(item => (
 		<div
+			key={item}
 			style={{
 				width: '150px',
 				display: 'inline-flex',

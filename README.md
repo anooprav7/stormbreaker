@@ -6,8 +6,6 @@ nps usage - ./node_modules/bin
 
 ### TODO
 
-;
-
 -   theme with styled-system
 -   Set up a playground
 -   Components to build first
