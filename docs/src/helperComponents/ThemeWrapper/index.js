@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React, { Fragment, Component } from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '@anooprav7/token';
-// import theme from 'where/your/theme/lives'
+import { GlobalStyles } from 'stormbreaker';
 
 export default class ThemeWrapper extends Component {
 	render() {
-		return <ThemeProvider theme={theme}>{this.props.children}</ThemeProvider>;
+		return (
+			<ThemeProvider theme={theme}>
+				<Fragment>
+					<GlobalStyles />
+					{this.props.children}
+				</Fragment>
+			</ThemeProvider>
+		);
 	}
 }

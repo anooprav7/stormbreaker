@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Loader from '../RippleLoader';
+import Loader from '../Spinner';
 import { ICON_NAMES } from '../Icon';
 import { space, width, fontSize } from 'styled-system';
 import Icon from '../Icon';
@@ -137,10 +137,11 @@ const LinkElement = styled(StyledButton.withComponent('a'))`
 `;
 
 export default function Button(props) {
-	const { loading, icon, iconAlign, children, colorState, variant, href, disabled } = props;
+	const { loading, icon, iconAlign, children, colorState, variant, size, href, disabled } = props;
 	let content = [];
 	if (loading) {
-		content.push(<Loader size='medium' color='#fff' mr={2} />);
+		content.push(<Loader size={sizes[props.size].fontSize || 12} color='#fff' mr={2} />);
+		content.push(<span>{children}</span>);
 	} else if (icon) {
 		let iconColorStateInvert = false;
 		if (variant === 'outline') iconColorStateInvert = true;
@@ -155,16 +156,12 @@ export default function Button(props) {
 		content.push(<span>{children}</span>);
 	}
 
-	console.log('prop types -', { ...space.propTypes });
-
 	return <StyledButton {...props}>{content}</StyledButton>;
 }
 
 /** TODOS
  *      Remove opacity problem while loading not disabled
  *      While Loading show text
- *      Link button
- *      Sizes implementation
  */
 
 Button.propTypes = {
