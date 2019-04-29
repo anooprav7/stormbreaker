@@ -24,14 +24,17 @@ const masterPath = path.dirname(require.resolve('stormbreaker'));
 const elementDirs = getDirectoriesAndAddIndex(`${masterPath}/elements`);
 const compoundDirs = getDirectoriesAndAddIndex(`${masterPath}/compounds`);
 
+// template: { filename: './styleguide.template.html', favicon: FAVICON_URL },
+
 module.exports = {
 	title: `Stormbreaker`,
 	editorConfig: { theme: 'cobalt' },
-	template: { filename: './styleguide.template.html', favicon: FAVICON_URL },
+	template: { favicon: FAVICON_URL },
 	serverPort: 7007,
 	usageMode: 'expand',
 	styles,
 	theme,
+	skipComponentsWithoutExample: true,
 	pagePerSection: true,
 	getComponentPathLine(componentPath) {
 		const name = path.dirname(componentPath).split('/');

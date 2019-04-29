@@ -7,13 +7,13 @@ const StyledLink = styled.a`
 	text-decoration: none;
 `;
 
-function LinkText(props) {
+function Link(props) {
 	const { newTab, children, ...remainingProps } = props;
 	if (newTab && !remainingProps.target) remainingProps.target = '_blank';
 	return <StyledLink {...remainingProps}>{children}</StyledLink>;
 }
 
-LinkText.propTypes = {
+Link.propTypes = {
 	/** Standard anchor tag href */
 	href: PropTypes.string.isRequired,
 
@@ -21,8 +21,8 @@ LinkText.propTypes = {
 	newTab: PropTypes.bool
 };
 
-LinkText.defaultProps = {
+Link.defaultProps = {
 	newTab: false
 };
 
-export default LinkText;
+export default Link;

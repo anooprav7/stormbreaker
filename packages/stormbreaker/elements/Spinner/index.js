@@ -28,8 +28,8 @@ const colorState = {
 // https://codepen.io/bernethe/pen/dorozd/
 const StyledSpinner = styled.div`
 	display: inline-block;
-	width: ${props => sizes[props.size] || sizes.medium}px;
-	height: ${props => sizes[props.size] || sizes.medium}px;
+	width: ${props => props.size || sizes.medium};
+	height: ${props => props.size || sizes.medium};
 	border: 2px solid #d0d0d0;
 	border-radius: 50%;
 	border-top-color: #414a4c;
