@@ -8,9 +8,6 @@ const Box = styled('div')(
 	},
 	space,
 	width,
-	fontSize,
-	color,
-	flex,
 	order,
 	alignSelf
 );
@@ -18,9 +15,6 @@ const Box = styled('div')(
 Box.propTypes = {
 	...space.propTypes,
 	...width.propTypes,
-	...fontSize.propTypes,
-	...color.propTypes,
-	...flex.propTypes,
 	...order.propTypes,
 	...alignSelf.propTypes
 };

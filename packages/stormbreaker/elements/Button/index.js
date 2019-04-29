@@ -19,7 +19,7 @@ const sizes = {
 		fontSize: '12px'
 	},
 	large: {
-		minWidth: '96px',
+		minWidth: '120px',
 		minHeight: '56px',
 		padding: '0px 32px',
 		fontSize: '16px'
@@ -34,6 +34,9 @@ const styles = {
 		return sizes[props.size].minWidth || sizes['medium'].minWidth;
 	},
 	minHeight(props) {
+		return sizes[props.size].minHeight || sizes['medium'].minHeight;
+	},
+	lineHeight(props) {
 		return sizes[props.size].minHeight || sizes['medium'].minHeight;
 	},
 	fontSize(props) {
@@ -89,7 +92,8 @@ const StyledButton = styled(
 		<button {...props} />
 	)
 )`
-	background: #fff;
+    background: #fff;
+    box-sizing: border-box;
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
@@ -100,7 +104,8 @@ const StyledButton = styled(
     min-width: ${styles.minWidth};
 	min-height: ${styles.minHeight};
 
-	text-transform: uppercase;
+    text-transform: uppercase;
+    line-height: ${styles.lineHeight};
 
 	letter-spacing: 1px;
 	font-size: ${styles.fontSize};
@@ -150,6 +155,8 @@ export default function Button(props) {
 		content.push(<span>{children}</span>);
 	}
 
+	console.log('prop types -', { ...space.propTypes });
+
 	return <StyledButton {...props}>{content}</StyledButton>;
 }
 
@@ -177,7 +184,7 @@ Button.propTypes = {
 	block: PropTypes.bool,
 
 	/** icon to be used  */
-	icon: PropTypes.oneOf(ICON_NAMES), //  TODO : add the array of icons supported here
+	icon: PropTypes.oneOf([...ICON_NAMES]), //  TODO : add the array of icons supported here
 
 	/** Which side of the Button Text should be the icon horizontally */
 	iconAlign: PropTypes.oneOf(['left', 'right']),
