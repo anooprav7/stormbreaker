@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Loader from '../Spinner';
+import Loader from '../RippleLoader';
 import { ICON_NAMES } from '../Icon';
 import { space, width, fontSize } from 'styled-system';
 import Icon from '../Icon';
@@ -47,7 +47,7 @@ const styles = {
 		return props.theme.colors[props.colorState].contrastText || 'rgb(68, 199, 244)';
 	},
 	opacity(props) {
-		return props.loading ? '0.6' : '1';
+		return props.disabled ? '0.6' : '1';
 	},
 	background(props) {
 		if (props.variant === 'outline') return '#fff';
@@ -88,7 +88,7 @@ const styles = {
 };
 //min-width: ${styles.minWidth};
 const StyledButton = styled(
-	({ colorState, size, variant, shape, block, icon, iconAlign, href, disabled, loading, type, ...props }) => (
+	({ colorState, size, variant, shape, block, icon, iconAlign, href, loading, type, ...props }) => (
 		<button {...props} />
 	)
 )`
