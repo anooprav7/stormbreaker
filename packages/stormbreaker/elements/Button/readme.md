@@ -20,6 +20,9 @@
 	<Button loading ml={2}>
 		Loading
 	</Button>
+	<Button disabled ml={2}>
+		Disabled
+	</Button>
 </div>
 ```
 
