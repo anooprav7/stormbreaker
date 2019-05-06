@@ -36,6 +36,10 @@ module.exports = {
 	theme,
 	skipComponentsWithoutExample: true,
 	pagePerSection: true,
+	ribbon: {
+		url: 'https://github.com/anooprav7/stormbreaker',
+		text: 'Fork me on GitHub'
+	},
 	getComponentPathLine(componentPath) {
 		const name = path.dirname(componentPath).split('/');
 		const lastName = name[name.length - 1];
@@ -49,9 +53,10 @@ module.exports = {
 	sections: [
 		{
 			name: 'Guides',
+
 			sections: [
 				{
-					name: 'Getting Started',
+					name: 'Stormbreaker',
 					content: path.resolve(__dirname, './src/pages', 'getting-started.md')
 				}
 			]
