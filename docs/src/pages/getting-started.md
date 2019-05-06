@@ -1,9 +1,17 @@
 ### What ? Why ?
 
-```md
-i started this project with the objective to learn how would one create a generalised set of UI components.
-I would want to use these components extensively in my personal projects.
-```
+##### What better way to learn than to create one ? With this thought, i started building a component library.
+
+Objectives
+
+1. To analyse how some of the most famous component libraries are made
+2. To understand the stack used for creating them and trying to undetstand why ?
+3. Maintaining a high degree of reusability, but keeping in mind not to be too generalised.
+4. Theme based, but UI appearence to be controlled by a centralised config. (Eg. Company theme)
+5. Responsive
+6. Simple to read and understand
+
+Ultimate test will be when i will be using it in my personal projects 😄
 
 ### Installation
 
