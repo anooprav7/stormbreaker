@@ -10,6 +10,7 @@ Objectives
 4. Theme based, but UI appearence to be controlled by a centralised config. (Eg. Company theme)
 5. Responsive
 6. Simple to read and understand
+7. Automate as much as possible (Docs generation). More Dev.
 
 Ultimate test will be when i will be using it in my personal projects 😄
 
