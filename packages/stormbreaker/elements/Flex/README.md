@@ -1,5 +1,7 @@
 ### Flex Container
 
 ```js
-<Flex />
+<Flex>
+	<Button>Flex</Button>
+</Flex>
 ```

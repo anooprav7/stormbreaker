@@ -1,3 +1,5 @@
 ```js
-<Box />
+<Box>
+	<Button>HI</Button>
+</Box>
 ```
