@@ -1,30 +1,26 @@
 {
-	"name": "stormbreaker-main",
-	"version": "0.1.1",
-	"description": "Stormbreaker Component Library Project",
+	"name": "stormbreaker",
+	"version": "0.2.0",
+	"description": "Stormbreaker React Component Library Project",
 	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
 	"private": true,
 	"workspaces": [
-		"packages/stormbreaker",
-		"packages/tokens/anooprav7",
-		"docs"
+		"packages/*"
 	],
-	"scripts": {
-		"build": "babel core/components -d core/es --ignore *.test.js,*.story.js,makeStories.js"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/anooprav7/stormbreaker.git"
 	},
 	"keywords": [
 		"stormbreaker"
 	],
 	"author": "anooprav7@gmail.com",
 	"license": "MIT",
-	"dependencies": {
-		"fs-extra": "^7.0.1",
-		"latest-version": "5.0.0",
-		"mkdirp": "0.5.1",
-		"ncp": "2.0.0",
-		"nps": "5.9.3",
-		"pretty-console-logs": "^0.2.1",
-		"read-pkg": "5.0.0",
-		"semver": "^6.0.0"
-	}
+	"bugs": {
+		"url": "https://github.com/anooprav7/stormbreaker/issues"
+	},
+	"homepage": "https://github.com/anooprav7/stormbreaker#readme"
 }
