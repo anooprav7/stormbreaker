@@ -1,15 +1,11 @@
 {
-	"name": "stormbreaker-main",
-	"version": "0.0.0-dev",
-	"description": "Stormbreaker React Component Library Project",
+	"name": "design-token-anooprav7",
+	"version": "0.2.0",
+	"description": "Stormbreaker React Component Library Project - Design token",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/anooprav7/stormbreaker.git"

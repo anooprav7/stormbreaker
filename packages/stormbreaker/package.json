@@ -1,15 +1,11 @@
 {
-	"name": "stormbreaker-main",
-	"version": "0.0.0-dev",
+	"name": "stormbreaker",
+	"version": "0.2.0",
 	"description": "Stormbreaker React Component Library Project",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"docz:dev": "docz dev"
 	},
-	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/anooprav7/stormbreaker.git"
@@ -22,5 +18,14 @@
 	"bugs": {
 		"url": "https://github.com/anooprav7/stormbreaker/issues"
 	},
-	"homepage": "https://github.com/anooprav7/stormbreaker#readme"
+	"homepage": "https://github.com/anooprav7/stormbreaker#readme",
+	"devDependencies": {
+		"docz": "1.2.0",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0"
+	},
+	"dependencies": {
+		"docz-theme-default": "^1.2.0",
+		"prop-types": "^15.7.2"
+	}
 }
