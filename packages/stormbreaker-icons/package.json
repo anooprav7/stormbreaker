@@ -1,12 +1,12 @@
 {
-  "name": "stormbreaker",
+  "name": "stormbreaker-icons",
   "version": "0.0.0-alpha.1",
-  "description": "Stormbreaker React components",
+  "description": "Stormbreaker icon library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Anoop",
+  "author": "Anoop Raveendran",
   "license": "MIT"
 }
