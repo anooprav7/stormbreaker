@@ -1,6 +1,13 @@
 {
   "name": "stormbreaker-monorepo",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "publish": "lerna publish --registry http://localhost:4873/ --dist-tag alpha"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   }
