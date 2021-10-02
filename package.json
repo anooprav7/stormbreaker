@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish --registry http://localhost:4873/ --dist-tag alpha"
+    "publish": "lerna publish --registry http://localhost:4873/ --dist-tag alpha --no-git-tag-version --no-private --conventional-commits",
+    "publish:nightly": "lerna publish --registry http://localhost:4873/ -y --canary --preid nightly --dist-tag=nightly --exact --force-publish=* --no-push"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
