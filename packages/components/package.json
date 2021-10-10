@@ -1,0 +1,28 @@
+{
+  "name": "@stormbreaker/components",
+  "version": "0.1.0",
+  "description": "Stormbreaker react components",
+  "keywords": [
+    "react"
+  ],
+  "author": "Anoop <anooprav7@gmail.com>",
+  "homepage": "https://github.com/anooprav7/stormbreaker#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anooprav7/stormbreaker.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/anooprav7/stormbreaker/issues"
+  }
+}

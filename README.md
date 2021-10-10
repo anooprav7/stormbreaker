@@ -1,23 +1,25 @@
-## Stormbreaker Component Library
+# Stormbreaker Component Library
 
-#### NOTES
+## Packages
+1. @stormbreaker/components
+2. @stormbreaker/utils
 
-nps usage - ./node_modules/bin
+### @stormbreaker/utils
+1. Add numbers function
 
-### TODO
+### @stormbreaker/components
+1. Button
+2. Badge
 
--   theme with styled-system
--   Set up a playground
--   Components to build first
-    -   Accordion
-    -   Button
-    -   Typography
-    -   Image
-    -   Switch
-    -   Spinner
-    -   Card
-    -   Link component
-
-### Font
-
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+### Features
+- 100% test coverage - PUPPETEER ?
+- .ts
+- emotion.js
+- storybook
+- lerna monorepo
+- github actions - deploy to npm
+- prettier
+- lint - TS, markdown
+- vscode packages.json
+- build system
+- Gradual updates and warning systems
