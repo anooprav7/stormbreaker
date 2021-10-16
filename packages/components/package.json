@@ -28,9 +28,13 @@
     "url": "https://github.com/anooprav7/stormbreaker/issues"
   },
   "devDependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "react": ">=16.8.6"
+    "@emotion/react": ">=11.4.1",
+    "react": ">=16.8.6",
+    "@emotion/styled": ">=11.3.0"
   }
 }

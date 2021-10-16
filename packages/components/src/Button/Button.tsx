@@ -1,38 +1,36 @@
-import React from "react";
+import * as React from 'react';
+import {BaseButton} from "./styled"
 
-interface Props {
-  border: string;
-  color: string;
+export type ButtonSize = "small" | "medium" | "large";
+
+export interface ButtonProps {
+  /**
+   * The content for the button
+   */
   children?: React.ReactNode;
-  height: string;
-  onClick: () => void;
-  radius: string
-  width: string;
+  /**
+   * The size of the button
+   * 
+   * @default 'small'
+   */
+  size?: ButtonSize;
 }
 
-const Button: React.FC<Props> = ({ 
-    border,
-    color,
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const {
+    size = "small",
     children,
-    height,
-    onClick, 
-    radius,
-    width
-  }) => { 
+    ...restProps
+  } = props;
   return (
-    <button 
-      onClick={onClick}
-      style={{
-         backgroundColor: color,
-         border,
-         borderRadius: radius,
-         height,
-         width
-      }}
+    <BaseButton 
+      ref={ref}
+      size={size}
+      {...restProps}
     >
     {children}
-    </button>
-  );
-}
+    </BaseButton>
+  )
+});
 
-export default Button;
+export { Button };
