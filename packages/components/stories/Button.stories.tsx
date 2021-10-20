@@ -1,10 +1,11 @@
-import * as React from "react"
+import * as React from "react";
 import { Button } from "../src";
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "@emotion/styled";
 
 export default {
   title: "Components/Button",
-  component: Button,
+  component: Button
   // decorators: [
   //   (Story: any) => (
   //     <div>
@@ -18,8 +19,8 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Small = Template.bind({});
 Small.args = {
-  size: 'small',
-  children: "Click Me"
+  size: "medium",
+  children: "DELETE"
 };
 
 // export const Large = Template.bind({});
@@ -28,13 +29,21 @@ Small.args = {
 //   children: "Click Me"
 // };
 
+const SizesContainer = styled.div`
+  display: inline-flex;
+  /* flex-direction: column; */
+  width: 300px;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
 export const Sizes = () => (
-  <React.Fragment>
-    <Button>Small</Button>
-    <Button size="medium">Medium</Button>
+  <SizesContainer>
+    <Button size="small">Small</Button>
+    <Button size="medium">MEDIUM</Button>
     <Button size="large">Large</Button>
-  </React.Fragment>
-)
+  </SizesContainer>
+);
 
 // export const basic = () => (
 //     <React.Fragment>
@@ -42,6 +51,3 @@ export const Sizes = () => (
 //     <Button size="large">Button</Button>
 //     </React.Fragment>
 // )
-
-
-

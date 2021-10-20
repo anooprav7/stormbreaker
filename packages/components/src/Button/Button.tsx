@@ -11,14 +11,14 @@ export interface ButtonProps {
   /**
    * The size of the button
    * 
-   * @default 'small'
+   * @default 'medium'
    */
   size?: ButtonSize;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
-    size = "small",
+    size = "medium",
     children,
     ...restProps
   } = props;
