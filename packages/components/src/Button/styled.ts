@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 
-import { ButtonProps, ButtonSize } from "./Button";
-
-// variant - primary, secondary, success, error, info, warning
+import { ButtonProps, ButtonSize, ButtonVariant } from "./Button";
 
 const generatePolygonFill = (triangleSideLength = 12) => {
   return `polygon(0 0,calc(100% - ${triangleSideLength}px) 0,100% ${triangleSideLength}px,100% 100%, ${triangleSideLength}px 100%,0 calc(100% - ${triangleSideLength}px))`;
@@ -14,49 +12,78 @@ const generatePolygonOutline = (triangleSideLength = 12, borderWidth = 2) => {
   return `polygon(0 0,calc(100% - ${triangleSideLength}px) 0,100% ${triangleSideLength}px,100% 100%, ${triangleSideLength}px 100%,0 calc(100% - ${triangleSideLength}px), 0 ${borderWidth}px,${borderWidth}px ${borderWidth}px,${borderWidth}px calc(100% - ${totalGap}px),${totalGap}px calc(100% - ${borderWidth}px),calc(100% - ${borderWidth}px) calc(100% - ${borderWidth}px),calc(100% - ${borderWidth}px) ${totalGap}px,calc(100% - ${totalGap}px) ${borderWidth}px,0 ${borderWidth}px)`;
 };
 
-const generateShapeStyles = (size: ButtonSize) => {
-  let height = "24px";
-  switch (size) {
-    case "large":
-      height = "52px";
-      break;
-    case "medium":
-      height = "36px";
-  }
-  // return {
-  //   height,
-  //   width,
-  //   paddingTop: 0,
-  //   paddingBottom: 0
-  // };
-  return `
-    height: ${height};
-  `;
-};
-
-const generatePaddingStyles = (size: ButtonSize) => {
+const generateShapeStyles = (size: ButtonSize = "medium") => {
+  // small
+  let height = 24;
   let padding = 16;
+
   switch (size) {
     case "large":
+      height = 52;
       padding = 32;
       break;
     case "medium":
+      height = 36;
       padding = 24;
   }
-  // return {
-  //   height,
-  //   width,
-  //   paddingTop: 0,
-  //   paddingBottom: 0
-  // };
+
   return `
-  padding: 0 ${padding}px;
+    height: ${height}px;
+    padding: 0 ${padding}px;
+    clip-path: ${generatePolygonFill()};
   `;
 };
 
-const generateVariantStyles = (size: ButtonSize, theme: any) => {
-  const borderColor = theme.colors.blue["500"];
-  return `background-color: ${borderColor}`;
+const generateVariantStyles = (
+  size: ButtonSize = "medium",
+  variant: ButtonVariant = "primary",
+  theme: any
+) => {
+  // "primary" - default | "secondary" | "success" | "error" | "warning";
+
+  let bgColor = theme.colors.primary["500"];
+  let textColor = theme.colors.white;
+
+  // bg, color
+  switch (variant) {
+    case "secondary":
+      textColor = theme.colors.secondary["500"];
+      bgColor = "transparent";
+      break;
+    case "success":
+      bgColor = theme.colors.success["500"];
+      textColor = theme.colors.black;
+      break;
+    case "error":
+      bgColor = theme.colors.error["600"];
+      textColor = theme.colors.white;
+      break;
+    case "warning":
+      bgColor = theme.colors.warning["500"];
+      textColor = theme.colors.white;
+  }
+
+  return `
+    background-color: ${bgColor};
+    color: ${textColor};
+  `;
+};
+
+const generateBorderStyles = (
+  variant: ButtonVariant = "primary",
+  theme: any
+) => {
+  let bgColor = "transparent";
+
+  if(variant === "secondary") {
+    // bgColor = theme.colors.primary["500"];
+    bgColor = theme.colors.secondary["500"];
+  }
+
+  return `
+    background-color: ${bgColor};
+    clip-path: ${generatePolygonOutline()};
+  `;
 };
 
 export const BaseButton = styled.button<ButtonProps>`
@@ -65,34 +92,25 @@ export const BaseButton = styled.button<ButtonProps>`
   outline: none;
   display: inline-block;
   text-decoration: none;
-  /* background: transparent; */
-  background: #ff003c;
-  color: white;
   border: none;
   text-transform: capitalize;
-  font-size: 13px;
-  clip-path: ${generatePolygonFill()};
+  font-size: 14px;
+  font-weight: 600;
   z-index: 1;
   cursor: pointer;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
 
-  ${({ size = "medium" }) => generateShapeStyles(size)};
-  ${({ size = "medium" }) => generatePaddingStyles(size)};
-  ${(props) => {
-    console.log(props);
-    return "";
-  }};
+  ${({ size }) => generateShapeStyles(size)};
+  ${({ size, variant, theme }) => generateVariantStyles(size, variant, theme)};
 
-&::after {
+  &::after {
     content: "";
-    clip-path: ${generatePolygonOutline()};
-    /* background-color: green; */
-    background-color: transparent;
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     height: 100%;
     z-index: -1;
-    /* ${({ size, theme }) => generateVariantStyles(size, theme)}; */
+    ${({ variant, theme }) => generateBorderStyles(variant, theme)};
   }
 `;
